@@ -9,7 +9,7 @@
 <body>
 <h2><%= request.getAttribute(
 		"javax.servlet.forward.request_uri") %> Request successful!!!</h2>
-<h2><%= request.getRequestURI() %> Request successful!!!</h2>
+	<h2><%= request.getRequestURI() %> Request successful!!!</h2>	
 <hr>
 <h2>Request Method : ${ pageContext.request.method }</h2>
 <hr>

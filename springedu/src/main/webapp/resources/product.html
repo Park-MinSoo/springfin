@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{
+	text-align : center;
+	margin : 10px auto;
+	text-shadow : 2px 2px 3px skyblue;
+	}
+	img{
+	box-shadow : 2px 2px 3px blue;
+	border : 2px solid black;
+	padding : 7px;
+	margin : 5px 5px;
+	}
+	div{
+	text-align : center;
+	margin : 10px auto;
+	}
+	img:hover{
+	  transform : rotate(10deg);
+	}
+</style>
+	<script>
+		function clearing(p){
+			var request = new XMLHttpRequest();			
+			request.onload = function(event){
+				if(request.status==200){
+					var str = request.responseText;
+					var obj = JSON.parse(str);
+					console.log(obj.msg);
+					if (obj.msg) 
+						alert(obj.msg);
+				}
+			}
+			request.open('GET',"/springedu/product?pid="+p,true);
+			request.send();
+		}
+	</script>
+</head>
+<body>
+<h1>구매하고자 하는 상품을 선택하십시오.</h1>
+<hr>
+<div>
+<a href="/springedu/product?pid=p001"><img src="/springedu/images/apple.gif" width = "200" height = "200"></a>
+<a href="/springedu/product?pid=p002"><img src="/springedu/images/banana.jpg" width = "200" height = "200"></a>
+<a href="/springedu/product?pid=p003"><img src="/springedu/images/halabong.jpg" width = "200" height = "200"></a>
+</div>
+<button onclick='clearing("clear");'>장바구니 비우기</button>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	section{
+	margin : 10px auto;
+	background-image : radial-gradient(ellipse, red, green, yellow);
+	border-radius : 10px;
+	width : 550px;
+	height : 230px;
+	padding : 5px;
+	}
+
+</style>
+</head>
+<body>
+<section>
+<h1>성적을 입력하시오.</h1>
+<hr>
+<form method="post" action="/springedu/edu">
+	이름 : <input type= "text" name= "gname" required><br>
+	평균 점수 : <input type="text" name="gscore" required><br>
+	<br>
+	<input type="submit" value="전송">
+	<input type="reset" value="재작성">	
+</form>
+</section>
+</body>
+</html>
