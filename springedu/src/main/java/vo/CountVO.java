@@ -9,5 +9,5 @@ public class CountVO {
 	}
 	public void setCountNum(int countNum) {
 		this.countNum += countNum;
-	}	
+	}
 }

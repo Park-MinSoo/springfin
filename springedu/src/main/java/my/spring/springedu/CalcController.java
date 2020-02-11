@@ -29,7 +29,7 @@ public class CalcController {
 			result = number1 / number2;
 		}
 		mav.addObject("calcresult", result);
-		mav.setViewName("calcResult");			
+		mav.setViewName("calcResult");
 		}
 		return mav;
 	}
