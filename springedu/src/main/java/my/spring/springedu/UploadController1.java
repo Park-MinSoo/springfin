@@ -9,9 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 import vo.FileVO;
 @Controller
 public class UploadController1 {
-	@RequestMapping("/uploadForm1")
-	public void formFile() {	   
-	}
+	@RequestMapping("/uploadForm1")//uploadForm1.jsp가 응답을 할 것이다.
+	public void formFile() {	// 특별한 기능은 없지만 그냥 바로 Form파일로 요청을 넘기는 기능인 것이다.
+	}	
 	@RequestMapping("/upload")
 	public ModelAndView saveFile(FileVO vo) {	    
 	     String fileName =  vo.getUploadFile().getOriginalFilename();
