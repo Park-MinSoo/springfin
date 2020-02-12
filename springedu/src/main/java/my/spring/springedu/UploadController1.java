@@ -14,7 +14,7 @@ public class UploadController1 {
 	}	
 	@RequestMapping("/upload")
 	public ModelAndView saveFile(FileVO vo) {	    
-	     String fileName =  vo.getUploadFile().getOriginalFilename();
+	     String fileName =  vo.getUploadFile().getOriginalFilename();//getOriginalFilename을 하면 실제 파일이름을 가져오게된다.
 	     byte[] content = null;
 	     ModelAndView mav = new ModelAndView();
 	     mav.setViewName("uploadForm1");

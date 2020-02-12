@@ -19,7 +19,7 @@ public class UploadController4 {
 	ServletContext context; 
 	@RequestMapping("/uploadForm3")
 	public String formFile() {
-		return "uploadForm2";
+		return "uploadForm2";	//앞의 예제와 jsp를 공유해서 쓰기위해 void가 아닌 String을 주어 return값을 주었다.
 	}
 
 	@RequestMapping("/upload3")
@@ -31,7 +31,8 @@ public class UploadController4 {
 		for (MultipartFile mfile : list) {
 			String fileName = mfile.getOriginalFilename();
 			try {
-				String fileInfo = context.getRealPath("/") + "resources/images/"+fileName;
+				String fileInfo = context.getRealPath("/") + "resources/images/"+fileName;// 여기서 RealPath"/"는 이 컨트롤러가 현재 수행되고 있는 프로젝트의 최상위 폴더를 추출하는 메서드이다.
+				System.out.println(" 컨텍스트의 최상위 폴더 : " + context.getRealPath("/") + "resources/images/"+fileName );
 				File f = new File(fileInfo);
 				if (f.exists()) {
 					resultStr += fileName + " : 파일이 이미 존재해요!!<br>";

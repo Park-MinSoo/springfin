@@ -33,7 +33,7 @@ public class UploadController2 {
 		}
 		mav.setViewName("uploadForm2");
 		for (MultipartFile mfile : list) {
-			String fileName = mfile.getOriginalFilename();
+			String fileName = mfile.getOriginalFilename();// 본래 파일의 이름을 추출
 			try {
 				File f = new File("c:/uploadtest/multi/" + fileName);
 				//String fileInfo = context.getRealPath("/") + "resources/images/"+fileName;
@@ -41,7 +41,7 @@ public class UploadController2 {
 				if (f.exists()) {
 					resultStr += fileName + " : 파일이 이미 존재해요!!<br>";
 				} else {
-					mfile.transferTo(f);
+					mfile.transferTo(f);// 받아와서 바로 저장하는 기능이다. (받아와서 추가적으로 무엇인가 action을 취하지는 못한다.)
 					resultStr += fileName + " : 파일이 저장되었어요!!<br>";
 				}
 			} catch (IOException e) {
