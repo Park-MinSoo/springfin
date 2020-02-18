@@ -26,13 +26,13 @@
 	
 	L.marker([37.566, 126.978]).addTo(mymap);
  
-	L.circle([37.566, 126.978], 50, {
+	L.circle([37.566, 126.978], 50, {// 50은 반지름을 의미한다.
 		color: 'red',
 		fillColor: '#f03',
-		fillOpacity: 0.4
-	}).addTo(mymap).bindPopup("나는 원!");
+		fillOpacity: 0.4	// 채우는 칼라의 투명도
+	}).addTo(mymap).bindPopup("나는 원!");	// bindPopup은 클릭 했을때 띄우겠다.
 
-	L.polygon([
+	L.polygon([//다각형
 		[37.5672, 126.9735],
 		[37.5646, 126.9741],
 		[37.5647, 126.9767],

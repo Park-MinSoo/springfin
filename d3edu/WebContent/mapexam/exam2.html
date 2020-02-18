@@ -26,8 +26,8 @@
 	}).addTo(mymap);
 
 	L.marker([37.566, 126.978]).addTo(mymap)
-		.bindPopup("<b>안녕하세요! 난 팝업이야..</b><br />여기가 서울시청입니다...").openPopup();   
-	//mymap.dragging.disable();
+		.bindPopup("<b>안녕하세요! 난 팝업이야..</b><br />여기가 서울시청입니다...").openPopup();   // openPopup이 호출되었기 때문에 자동으로 팝업이 호출되어 나왔다.
+	mymap.dragging.disable();	// 얘를 사용하면 드래그가 안되고 보이는 화면이 고정되게 된다. 즉 , 정적 지도를 만들 수 있게 된다.
 </script>
 
 

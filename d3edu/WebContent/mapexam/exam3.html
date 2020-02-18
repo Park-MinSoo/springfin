@@ -22,8 +22,8 @@ div {
 <div id="mapid3" style="width: 600px; height: 400px;"></div>
 <div id="mapid4" style="width: 600px; height: 400px;"></div>
 <script>
-	var mymap1 = L.map('mapid1', { center : [37.566, 126.978], zoom : 18});
-	var mymap2 = L.map('mapid2').setView([37.566, 126.978], 1);
+	var mymap1 = L.map('mapid1', { center : [37.566, 126.978], zoom : 18});// 이렇게 자바스크립트 객체로 만들어서 전달해 주어도 된다.
+	var mymap2 = L.map('mapid2').setView([37.566, 126.978], 1);	// 물론 setView 로 전달도 가능하다. 
 	var mymap3 = L.map('mapid3').setView([37.566, 126.978], 5);
 	var mymap4 = L.map('mapid4').setView([37.566, 126.978], 10);
 

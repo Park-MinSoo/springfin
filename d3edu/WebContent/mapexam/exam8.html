@@ -36,7 +36,7 @@
 	var m4 = L.marker([37.5032, 127.0429], {icon: myIcon, title:"나 4번이야!!"});
 	var m5 = L.marker([37.5012, 127.0429], {icon: myIcon, title:"나 5번이야!!"});
 	
-	var group = L.layerGroup([m1, m2, m3, m4, m5])
+	var group = L.layerGroup([m1, m2, m3, m4, m5])	// layerGroup 객체를 생성한 후에 그룹에 addTo한다.
 
 	group.addTo(mymap);
 </script>
