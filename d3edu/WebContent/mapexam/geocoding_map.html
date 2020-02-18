@@ -31,7 +31,7 @@
 					lng = data.results[0].geometry.location.lng;
 					alert("좌표로 : " + lat + ":" + lng);
 					if(mymap)
-						mymap.remove();
+						mymap.remove();	// 지도가 먼저 그려진 상태에서 지도를 다시 재검색할때 현재 지도 정보를 지우고 다시 띄워 주어야 하기 때문에 먼저 mymap 객체를 지워준다. 
 					mymap = L.map('mapid').setView([lat, lng], 16)
 					L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 						maxZoom: 18,
