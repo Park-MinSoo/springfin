@@ -17,6 +17,7 @@
       }
       function showPosition(position) {
           x.innerHTML="위도: " + position.coords.latitude + "<br />경도: " + position.coords.longitude;       
+      	// coords.latitude 나 coords.longitude 로 위도, 경도 정보를 읽어온다.
       }
       function showError(error) {
          switch(error.code) {

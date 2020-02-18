@@ -7,13 +7,13 @@
    crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-   crossorigin=""></script>
+   crossorigin=""></script><!-- link 태그부터 script 태그까지 lefleat을 쓰기 위한 코드이기에 무조건 가져와야한다. -->
 </head>
 <body>
    <p id="demo">위치정보를 추출하려면 실행 버튼을 클릭하세요:</p>
    <button onclick="getLocation()">실행</button>
    <hr>
-   <div id="mapid" style="width: 600px; height: 400px;"></div>
+   <div id="mapid" style="width: 600px; height: 400px;"></div><!--  지도를 그리고자하는 태그를 미리 지정해 두었다. -->
    <script>
       var x=document.getElementById("demo");
 	  function getLocation() {
@@ -28,17 +28,18 @@
           x.innerHTML="위도: " + position.coords.latitude + "<br />경도: " + position.coords.longitude;
           var lat = position.coords.latitude;
           var lng = position.coords.longitude;
-          var mymap = L.map('mapid').setView([lat, lng], 15)
+          var mymap = L.map('mapid').setView([lat, lng], 15)	
+          // leafleat은 대부분 L. 으로 시작하며 L.map은 맵객체를 만드는것. 미리지정해둔 mapid로 만들어준다. setView는 보여지는 중심을 말하며 두번째 아규먼트인 15는 줌 레벨을 의미한다. 1로 하면 세계지도로 보여지게된다.
 			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 				maxZoom: 18,
 				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 					'Imagery <a href="https://www.mapbox.com/">Mapbox</a>',
-				id: 'mapbox.streets'
-			}).addTo(mymap);
+				id: 'mapbox.streets' // L.tileLayer 는 우리 마음대로 하는 것이 아니라 이렇게 사용해야 하는 것이다.
+			}).addTo(mymap);// addTo로 우리가 만든 맵객체에 넣고있다.
 
-			L.marker([lat, lng]).addTo(mymap)
-				.bindPopup("<b>우리가 있는 곳... 쬠 이상하다ㅜ").openPopup();   
+			L.marker([lat, lng]).addTo(mymap)// L.marker로 우리가 있는 위치를 표시해준다.
+				.bindPopup("<b>우리가 있는 곳... 쬠 이상하다ㅜ").openPopup();   // 팝업창을 바인드해주고 있다. 여기서 openPopup은 디폴트로 팝업을 보여달라는 뜻이다.(안쓰면 마커까지만 보이고 출력문은 안보임, 한번 눌러야 보이게 된다.)
       }
       function showError(error) {
          switch(error.code) {

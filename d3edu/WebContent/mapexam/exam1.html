@@ -30,14 +30,14 @@
 	}).addTo(mymap);
 
     var xhr = new XMLHttpRequest();
-	xhr.onload =  function() { 
+	xhr.onload =  function() {
 		if(xhr.status == 200) {
 			var data = JSON.parse(xhr.responseText);
   	  		L.geoJson(data).addTo(mymap).bindPopup(function (layer) {
-      			return layer.feature.properties.name;
+      			return layer.feature.properties.name;	//geojson이라는 곳에서 해당하는 각각의 layer들을 읽어온다.
   			});
 		}
- 	 };
+ 	 };// JSON을 읽어오고 있다.
     xhr.open("GET", "countries.geojson", true);
 	xhr.send();
 
