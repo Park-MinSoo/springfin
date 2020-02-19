@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SVG로 그리기</title>
+</head>
+<body>
+<h1>베지에 곡선 표시</h1>
+	<svg><!--  곡선을 그리는 태그가 따로 있는 것이 아니라서 path 태그에  d라는 값에 직접 좌표를 찍어 주어야 한다. 이때 C는 controll point로 조절점을 의미한다. (M은 그지점으로 이동아라는 Move)-->
+	<!--  S는 반대편 조절점을 의미한다. -->
+	<path
+		d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
+	stroke="#eb6e4c" fill="none" stroke-width="6" stroke-linecap="round" />
+	</svg>
+	
+	<hr>
+	
+	<svg><!--  C 의 조절점은 2개까지 줄 수 있다. 즉, 마지막 95, 80은 조절점이 아니라 and 그리는 좌표인 것이다. -->
+	<path
+		d="M10 80 C 40 10, 65 10, 95 80"
+	stroke="green" fill="none" stroke-width="6" stroke-linecap="round" />
+	</svg>
+	
+	<hr>
+	
+	<svg>
+	<path
+		d="M10 80 C 40 10, 150 150, 180 80"
+	stroke="blue" fill="none" stroke-width="6" stroke-linecap="round" />
+	</svg>
+</svg>
+</body>
+</html>
