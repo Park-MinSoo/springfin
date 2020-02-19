@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SVG로 그린 smile</title>
+	</head>
+	<body>
+		<svg width="800" height="800">
+			<!--  얼굴 구현 -->
+			<circle cx="275" cy="220" r="100" fill="#ffe6cc" stroke="black" stroke-width="2"/>
+			
+			<!--  삿갓 구현 -->
+			<path d="M 280,20 L 10,190 550,190Z" fill="#996633" stroke="black" stroke-width="2" />
+			<circle cx="275" cy="85" r="30" fill="red" stroke="black" stroke-width="2"/>
+			<rect x="265" y="105" width="20" height="75" fill="green" stroke="black" stroke-width="2"/>
+			<circle cx="245" cy="105" r="30" fill="red" stroke="black" stroke-width="2"/>
+			<circle cx="305" cy="105" r="30" fill="red" stroke="black" stroke-width="2"/>
+			
+			<!--  눈 구현  -->
+  			<line x1="225" y1="200" x2="260" y2="230" stroke="black" stroke-width="4"/>
+  			<line x1="325" y1="200" x2="290" y2="230" stroke="black" stroke-width="4"/>
+
+			<!--  입 구현 -->
+			<rect x="220" y="250" width="110" height="50" rx="20" ry="20" fill="red" stroke="black" stroke-width="2"/>
+			
+			<!--  수염 구현 -->
+			<path d="M295 245 C 335 205, 425 365, 455 305" stroke="black" fill="none" stroke-width="4" stroke-linecap="round" />
+			<path d="M245 245 C 205 205, 115 365, 75 305" stroke="black" fill="none" stroke-width="4" stroke-linecap="round" />
+			
+		</svg>
+	</body>
+</html>
