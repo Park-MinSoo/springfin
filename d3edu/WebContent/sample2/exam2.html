@@ -14,9 +14,9 @@
 d3.select('body')
     .selectAll("div")
     .data(['aaa', 'bbb', 'ccc', 'ddd'])
-    .enter()
+    .enter()// 새로운 돔객체를 추가해라(여기서는 비어있는 돔객체 2개를 추가하여, ccc와 ddd의 자리를 만들어 주는것)
     .append('div')
-    .text(function(d, i){return d +"-"+i})
+    .text(function(d, i){console.log(d+":"+i); return d +"-"+i})//새로운 append에 대하여 text메서드를 호출하였기 때문에 새롭게 추가된  2개에 대하여만 바뀌게 된다.
 </script>
 </body>
 </html>

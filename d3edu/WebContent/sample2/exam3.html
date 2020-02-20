@@ -16,7 +16,7 @@ d3.select('body')
     .data(['aaa'])
     .text(function(d, i){return d +"-"+i})
     .exit()
-    .remove()
+    .remove()	// exit(),remove() 는 enter()의 반대라고 생각하면된다. 바인딩된 객채보다 돔 객체가 더 많을경우 짝을 이루지못한  나머지 돔 객체를 없애주는 것이다. 
 </script>
 </body>
 </html>

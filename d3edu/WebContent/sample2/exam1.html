@@ -14,7 +14,7 @@
 d3.select('body')
     .selectAll("div")
     .data(['aaa', 'bbb', 'ccc', 'ddd'])
-    .text(function(d, i){return d +"-"+i})
+    .text(function(d, i){console.log(d+":"+i); return d +"-"+i})
 </script>
 </body>
 </html>
