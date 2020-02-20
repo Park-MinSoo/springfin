@@ -11,8 +11,8 @@
 자바스크립트 콘솔에서 확인하셩...
 <script>
 var x = d3.time.scale()
-.domain([new Date(2000, 0, 1), new Date(2000, 0, 2)])
-.range([0, 960]);
+.domain([new Date(2000, 0, 1), new Date(2000, 0, 2)])	// 시 분 초는 부여하지 않았으므로 0시 0분 0초 가 된다.
+.range([0, 960]);	// 그 시간을 그에 알맞는 0부터 960사이의 숫자로 변환한다.
 console.log(x(new Date(2000, 0, 1,  5))); // 200
 console.log(x(new Date(2000, 0, 1, 16))); // 640
 console.log(x(new Date(2000, 0, 1, 0))); // 0

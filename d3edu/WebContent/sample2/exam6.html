@@ -10,11 +10,12 @@
 <hr>
 자바스크립트 콘솔에서 확인하셩...
 <script>
-var newRamp = d3.scale.linear().domain([500000,13000000]).range([0, 500]);
+var newRamp = d3.scale.linear().domain([500000,13000000]).range([0, 500]);	
+// domain은 최솟값, 최댓값을 주는 것이다. 이것의 리턴값은 함수가 나오게된다. , 정의역과 치역의 범위를 설정해주고있다.
 console.log(newRamp);
 console.log(newRamp(1000000));	
 console.log(newRamp(9000000));	
-console.log(newRamp.invert(313));	
+console.log(newRamp.invert(313)); // 정의역과 치역을 반대로 한다.
 console.log(newRamp(500000));	
 console.log(newRamp(13000000));
 </script>

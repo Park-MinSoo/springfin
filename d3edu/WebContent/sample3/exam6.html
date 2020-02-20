@@ -36,7 +36,7 @@
 
 		// 버튼 클릭 시의 처리
 		d3.select("#updateButton")
-			.on("click", function(){
+			.on("click", function(){// 클릭이벤트 발생시 이 function을 수행하라는 이벤트 핸들러 등록
 				dataSet = [20, 230, 150, 10, 20];		// 새로운 데이터로 변경
 				d3.select("#myGraph")						// SVG 요소 지정
 					.selectAll("rect")							// SVG로 사각형을 표시할 요소를 지정
