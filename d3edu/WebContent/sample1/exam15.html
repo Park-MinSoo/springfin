@@ -19,10 +19,12 @@
 		</svg>
 		<script>
 		d3.selectAll(".bar")	// CSS 클래스 이름에 bar를 지정
-		.style("fill", function(d,i){	// 2번째의 파라미터에 함수를 지정
-			if(i == 2){	// 순서를 조사
-				return "red";	// 3번째라면 빨간색을 나타내는 문자를 반환
-			}	
+		.style("fill", function(d,i){	// 2번째의 파라미터에 함수를 지정 , d에는 찾아진 돔 객체(데이타) 오고 i는 인덱스가 온다. (0 , 1, 2, 3 으로 올 것임)
+			console.log("이것은 d" + d);
+			console.log("이것은 i" + i);
+			if(i == 2){	// 순서를 조사(i가 2인 경우를 찾게 될 것이다.)
+				return "red";	// 3번째라면 빨간색을 나타내는 문자를 반환 (나머지는 undefined이기에 변하지 않을 것이다.)
+			}
 		})
 
 		</script>
