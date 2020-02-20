@@ -16,15 +16,18 @@
 		</svg>
 
 	<script>
-	var binddiv = d3.select('body')
+	d3.select('body')
+	.attr("height",300)
     .selectAll("text")
     .data(['둘리', '또치', '도우너', '마이콜', '희동이'])
-    
-    binddiv.enter()
-    .append('text')
     .text(function(d, i){return d +"-"+i})
-    
-   	binddiv.text(function(d, i) {console.log(d + ":" + i);return d + "-" + i})
+
+   .enter()
+    .append('text')
+    .attr("x",25)
+    .attr("font-size",24px)
+    .attr("y",function(d, i){return 40*(i+1)})    
+   	.text(function(d, i) {console.log(d + ":" + i);return d + "-" + i})
 
 </script>
 </body>
