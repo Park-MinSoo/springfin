@@ -1,7 +1,5 @@
 package vo;
 
-import java.sql.Blob;
-
 public class SmMemberVO {
 	private int id;
 	private String sm_id;

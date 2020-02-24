@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resource.OfficialBoardMapper">
+ 	<select id="selectOfficial"  resultType="vo.OfficialBoardVO">
+    	select id, writer, title, content, to_char(writedate,'rrrr-mm-dd') writedate, cnt from officialboard order by writedate asc
+ 	</select>
+ 	 <select id="selectOfficialOne" resultType="vo.OfficialBoardVO">
+    	select id, writer, title, content, to_char(writedate,'rrrr-mm-dd') writedate, cnt from officialboard where id = #{id}
+ 	</select>
+ 	<update id="officialCntup" parameterType="vo.OfficialBoardVO">
+ 				update officialboard set
+ 				cnt = #{cnt} + 1
+ 				where id = #{id}
+ 	</update>
+ 	
+ 	<select id="selectOfficialWriter" parameterType="string" resultType="vo.OfficialBoardVO">
+    	select id, writer, title, content, to_char(writedate,'rrrr-mm-dd') writedate, cnt from officialboard where writer = #{writer}
+ 	</select>
+  	<insert id="insertOfficial"  parameterType="vo.OfficialBoardVO">
+  		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+  			select officialboard_seq.nextval from dual
+   		</selectKey>
+  		 insert into officialboard (id, writer , title , content, writedate, cnt) values(#{id} , '관리자' , #{title} , #{content} ,to_date(sysdate,'rrrr-mm-dd'), 0)
+    </insert>
+	<select id="searchOfficial" parameterType="java.util.HashMap" resultType= "vo.OfficialBoardVO">
+    	select id, writer, title, content, to_char(writedate,'rrrr-mm-dd') writedate, cnt 
+    	         from officialboard where ${searchType} like '%'||#{keyword}||'%'
+    </select>
+    <delete id="deleteOfficial" parameterType="_int">
+    	delete from officialboard where id = #{id}
+    </delete>
+    <update id="updateOfficial" parameterType="vo.OfficialBoardVO">
+		update officialboard set
+			writer = '관리자',
+			title = #{title},
+			content = #{content},
+			writedate = to_date(sysdate,'rrrr-mm-dd')
+		where id = #{id}
+    </update>
+</mapper>

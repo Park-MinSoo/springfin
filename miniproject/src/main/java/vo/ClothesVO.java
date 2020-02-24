@@ -1,7 +1,5 @@
 package vo;
 
-import java.sql.Blob;
-
 public class ClothesVO {
 	private int id;
 	private String pidname;

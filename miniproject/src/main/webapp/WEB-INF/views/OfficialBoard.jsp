@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ page import = "vo.SmMemberVO,java.util.ArrayList" %>
+ <%@ page import = "vo.OfficialBoardVO,java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head><style>
@@ -44,10 +44,10 @@
 </style>
 <body>
 <%
-	ArrayList<SmMemberVO> list = (ArrayList<SmMemberVO>)request.getAttribute("list");
-	SmMemberVO listone = (SmMemberVO)request.getAttribute("listone");
-	System.out.println("listone:"+listone);
-	if(list !=null){
+	ArrayList<OfficialBoardVO> olist = (ArrayList<OfficialBoardVO>)request.getAttribute("olist");
+	OfficialBoardVO olistone = (OfficialBoardVO)request.getAttribute("olistone");
+	System.out.println("olistone:"+ olistone);
+	if(olist !=null){
 %>
 	<h2 id="title">공지 게시판</h2>
 	<table style="margin:auto">
@@ -59,55 +59,45 @@
 	<td class="sub" style="color:green">조회수</td>
 	</tr>
 <%
-	for(SmMemberVO vo : list){
+	for(OfficialBoardVO vo : olist){
 %>
 			<tr>
 			<td class='<%= vo.getId() %>'><%= vo.getId() %></td>
-			<td class='<%= vo.getId() %>' onclick="location.href='/springnews/listOne?id=<%= vo.getId() %>'"><%= vo.getTitle() %></td>
-			<td class='<%= vo.getId() %>' onclick="location.href='/springnews/writer?writer=<%= vo.getWriter() %>'"><%= vo.getWriter() %></td>
+			<td class='<%= vo.getId() %>' onclick="location.href='/miniproject/official/listOne?id=<%= vo.getId() %>'"><%= vo.getTitle() %></td>
+			<td class='<%= vo.getId() %>' onclick="location.href='/miniproject/official/writer?writer=<%= vo.getWriter() %>'"><%= vo.getWriter() %></td>
 			<td class='<%= vo.getId() %>'><%= vo.getWritedate() %></td><% 	System.out.println("getWritedate:"+vo.getWritedate()); %>
 			<td class='<%= vo.getId() %>'><%= vo.getCnt() %></td>
-			</tr>			
+			</tr>
 <%
 		}
 %>
 	</table>
 <%
 	}
-	if (request.getAttribute("msg") != null) {
-%>
-	<script>
-		alert('${ msg }');
-	</script>
-
-<%
-	}
 %>
 
 <div id="writetext">
-<button onclick="displayDiv(1);">뉴스 작성</button>
+<button onclick="displayDiv(1);">공지 작성</button>
 </div>
 
 <%
 	
-	if (listone != null) {
-		System.out.println("JSP 출력 :" + listone);
+	if (olistone != null) {
+		System.out.println("JSP 출력 :" + olistone);
 %>
 
 <div id="reading">
-<form method = "post" action = "/springnews/update">
-<input type="hidden" name="action" value="update">
-<input type="hidden" name="id" value="<%= listone.getId() %>">
+<form method = "post" action = "/miniproject/official/update">
+<input type="hidden" name="action" value="official/update">
+<input type="hidden" name="id" value="<%= olistone.getId() %>">
 <br>
-<input id="m_writer" type="text"  name="writer" value="<%= listone.getWriter() %>">
+<input id="m_title" type="text" name="title"  value="<%= olistone.getTitle() %>">
 <br>
-<input id="m_title" type="text" name="title"  value="<%= listone.getTitle() %>">
-<br>
-<textarea id="m_content"  rows="3" cols="30" name = "content" ><%= listone.getContent() %></textarea>
+<textarea id="m_content"  rows="3" cols="30" name = "content" ><%= olistone.getContent() %></textarea>
 <br>
 <input type= "button" value ="확인" onclick="displayDiv(3)">
 <input type= "submit" value ="수정" >
-<input type= "button" value ="삭제" onclick="location.href ='/springnews/delete?id=<%= listone.getId()%>'" >
+<input type= "button" value ="삭제" onclick="location.href ='/miniproject/official/delete?id=<%= olistone.getId()%>'" >
 </form>
 </div>
 <%
@@ -127,10 +117,8 @@ function displayDiv(type) {
 }
 </script>
 <div id="write"  style="display:none">
-<form method = "post" action = "/springnews/insert">
-<input type="hidden" name="action" value="insert">
-<input type="text"  name="writer" placeholder="작성자명을 입력해주세요">
-<br>
+<form method = "post" action = "/miniproject/official/insert">
+<input type="hidden" name="action" value="official/insert">
 <input type="text" name="title" placeholder="제목을 입력해주세요">
 <br>
 <textarea rows="3" cols="30" name = "content" placeholder="내용을 입력해주세요" ></textarea>
@@ -143,15 +131,15 @@ function displayDiv(type) {
 
 
 <div id="search">
-<form method = "get" action ="/springnews/search">
-<input type="hidden" name="action" value="search">
+<form method = "get" action ="/miniproject/official/search">
+<input type="hidden" name="action" value="official/search">
 <select name="searchType">
 <option value = "content">내용</option>
 <option value = "title">제목</option>
 <option value = "writer">작성자</option>
 </select>
 <input type = "text" name = "keyword" >
-<input type = "submit" value = "뉴스검색">
+<input type = "submit" value = "공지검색">
 </form>
 </div>
 </body>
