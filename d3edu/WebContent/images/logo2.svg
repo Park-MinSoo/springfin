@@ -1,0 +1,14 @@
+<svg width="700pt" height="700pt" xmlns="http://www.w3.org/2000/svg">
+<defs>
+	<style>
+	@import url("https://fonts.googleapis.com/css?family=Italianno|Sacramento|Tangerin&amp;display=swap");
+	</style>
+    <linearGradient id="gradient">
+    <stop stop-color="#ED6E46" offset="0%"/>
+    <stop stop-color="green" offset="100%"/>
+    </linearGradient>
+</defs>
+<text x="30" y="120" fill="url(#gradient)" font-size="80" font-family= "'Tangerin', 'cursive'">
+	Style Manager
+</text>
+</svg>
