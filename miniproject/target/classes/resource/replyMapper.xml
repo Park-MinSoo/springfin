@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resource.replyMapper">
+	<select id="replieslist" resultType="vo.ReplyVO">
+		select re_id,re_writer,re_text,re_writedate,re_tup
+		from reply
+		where re_select=#{re_select}
+		order by re_id
+	</select>
+	<insert id="replyinsert" parameterType="vo.ReplyVO">
+		<selectKey resultType="int" keyProperty="re_id" order="BEFORE">
+			select reply_seq.nextval from dual
+		</selectKey>
+			insert into reply(re_id, re_writer,re_text,re_writedate,re_select)
+			values (#{re_id},#{re_writer},#{re_text},to_date(sysdate,'rrrr-mm-dd'),#{re_select})
+	</insert>
+	<update id="replyupdate" parameterType="vo.ReplyVO">
+		update reply sets
+		re_text=#{re_text}, re_writedate=to_date(sysdate,'rrrr-mm-dd')
+		where re_id=#{re_id}
+	</update>
+	<delete id="replydelete" parameterType="_int">
+		delete from reply where re_id=#{re_id}
+	</delete>
+	
+	
+</mapper>
