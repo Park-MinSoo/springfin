@@ -10,7 +10,10 @@
 		text-align : center;
   		text-shadow : 3px 3px 5px skyblue;
   	}
-  
+  	div{
+  		text-align : center;
+  		text-shadow : 3px 3px 5px skyblue;
+  	}
 	#dropbox {
 		position : absolute;
 		left : 940px;
@@ -84,10 +87,17 @@ function loading() {
 </script>
 <body>
 <h1>나만의 옷장</h1>
+<div>
     <button onclick="">오늘의 코디</button>
     <button onclick="save();">코디 저장하기</button>
     <button onclick="loading();">코디 읽어오기</button>
-    <button onclick="del();">코디 지우기</button><br><br>
+    <button onclick="del();">코디 지우기</button>
+    <br><br>
+    <button onclick="">상의</button>
+    <button onclick="">하의</button>
+    <button onclick="">신발</button>
+    <button onclick="">기타</button><br>
+</div>
 
   <section id="dropbox">
     <canvas id="canvas" width="550" height="700"></canvas>
