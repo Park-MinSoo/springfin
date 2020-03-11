@@ -22,24 +22,54 @@
   	}
   	#wtr{
   		position : absolute;
-		left : 860px;
+		left : 760px;
   	}
 	#dropbox {
 		position : absolute;
-		left : 730px;
-		width : 500px;
+		left : 580px;
+		width : 650px;
 		height : 800px;
 	}
-	#picturesbox {
+	#defaultCloset {
 		position : absolute;
 		left : 5px;
-		width : 700px;
+		width : 550px;
+		height : 800px;
+	}
+	#picturesbox1 {
+		position : absolute;
+		left : 5px;
+		width : 550px;
+		height : 800px;
+	}
+	#picturesbox2 {
+		position : absolute;
+		left : 5px;
+		width : 550px;
+		height : 800px;
+	}
+	#picturesbox3 {
+		position : absolute;
+		left : 5px;
+		width : 550px;
+		height : 800px;
+	}
+	#picturesbox4 {
+		position : absolute;
+		left : 5px;
+		width : 550px;
+		height : 800px;
+	}
+	#picturesbox5 {
+		position : absolute;
+		left : 5px;
+		width : 550px;
 		height : 800px;
 	}
 	#weather{
 		padding : 5px;
 		position : absolute;
-		left : 730px;
+		left : 580px;
 		opacity : 0.75;
 	}
 	#closet{
@@ -79,13 +109,13 @@ function dropped(e){
   var posx=e.pageX-drop.offsetLeft;
   var posy=e.pageY-drop.offsetTop;
 
-  canvas.drawImage(elem,posx,posy);
+  canvas.drawImage(elem,posx,posy,200,200);
  
 }
 window.addEventListener('load', initiate, false);
 
 function save() {	
-    localStorage.setItem("canvas", drop.toDataURL());    
+    localStorage.setItem("canvas", drop.toDataURL());
 }
 	
 function del() {
@@ -101,8 +131,9 @@ function loading() {
 }
 /*
 function randomcodi() {
-	var rand = (int)(Math.random()*10);
-	
+	document.write("<img src='" + Math.round(Math.random()*4+1) + ".gif'>");	//상의
+	document.write("<img src='" + Math.round(Math.random()*4+1) + ".gif'>");	//하의
+	document.write("<img src='" + Math.round(Math.random()*4+1) + ".gif'>");	//신발
 }
 
 function showlist() {
@@ -132,6 +163,59 @@ function displayWeather(type) {
 		document.getElementById("summer").style.display='none';
 		document.getElementById("fall").style.display='none';
 		document.getElementById("winter").style.display='block';
+	}else if(type == 5){
+		document.getElementById("spring").style.display='none';
+		document.getElementById("summer").style.display='none';
+		document.getElementById("fall").style.display='none';
+		document.getElementById("winter").style.display='none';
+	}
+}
+
+function displayClothes(type) {
+	if(type == 1) {
+		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("picturesbox1").style.display='block';
+		document.getElementById("picturesbox2").style.display='none';
+		document.getElementById("picturesbox3").style.display='none';
+		document.getElementById("picturesbox4").style.display='none';
+		document.getElementById("picturesbox5").style.display='none';
+	}else if(type == 2) {
+		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("picturesbox1").style.display='none';
+		document.getElementById("picturesbox2").style.display='block';
+		document.getElementById("picturesbox3").style.display='none';
+		document.getElementById("picturesbox4").style.display='none';
+		document.getElementById("picturesbox5").style.display='none';
+	}else if(type == 3){
+		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("picturesbox1").style.display='none';
+		document.getElementById("picturesbox2").style.display='none';
+		document.getElementById("picturesbox3").style.display='block';
+		document.getElementById("picturesbox4").style.display='none';	
+		document.getElementById("picturesbox5").style.display='none';
+	}else if(type == 4){
+		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("picturesbox1").style.display='none';
+		document.getElementById("picturesbox2").style.display='none';
+		document.getElementById("picturesbox3").style.display='none';
+		document.getElementById("picturesbox4").style.display='block';
+		document.getElementById("picturesbox5").style.display='none';
+	}
+	else if(type == 5){
+		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("picturesbox1").style.display='none';
+		document.getElementById("picturesbox2").style.display='none';
+		document.getElementById("picturesbox3").style.display='none';
+		document.getElementById("picturesbox4").style.display='none';
+		document.getElementById("picturesbox5").style.display='block';
+	}
+	else if(type == 6){
+		document.getElementById("defaultCloset").style.display='block';
+		document.getElementById("picturesbox1").style.display='none';
+		document.getElementById("picturesbox2").style.display='none';
+		document.getElementById("picturesbox3").style.display='none';
+		document.getElementById("picturesbox4").style.display='none';
+		document.getElementById("picturesbox5").style.display='none';
 	}
 }
 
@@ -145,21 +229,23 @@ function displayWeather(type) {
     <button onclick="del();">코디 지우기</button>
     <br><br>
 </div>
-    <button class="type" onclick="">상의</button>
-    <button class="type" onclick="">하의</button>
-    <button class="type" onclick="">신발</button>
-    <button class="type" onclick="">기타</button>
-    <button class="type" onclick="">오늘의 코디</button>
+    <button class="type" onclick="displayClothes(1);">상의</button>
+    <button class="type" onclick="displayClothes(2);">하의</button>
+    <button class="type" onclick="displayClothes(3);">신발</button>
+    <button class="type" onclick="displayClothes(4);">기타</button>
+    <button class="type" onclick="displayClothes(5);">오늘의 코디</button>
+    <button class="type" onclick="displayClothes(6);">옷장 문 닫기</button>
 <span id= "wtr">
     <button class="wt" onclick="displayWeather(1);">봄</button>
     <button class="wt" onclick="displayWeather(2);">여름</button>
     <button class="wt" onclick="displayWeather(3);">가을</button>
-    <button class="wt" onclick="displayWeather(4);">겨울</button><br>
+    <button class="wt" onclick="displayWeather(4);">겨울</button>
+    <button class="wt" onclick="displayWeather(5);">배경 없음</button><br>
 </span>
   <section id="dropbox">
-    <canvas id="canvas" width="500" height="800"></canvas>
+    <canvas id="canvas" width="650" height="800"></canvas>
   </section>
-  <section id="picturesbox">
+  <section id="picturesbox1" style="display:none">
     <img id="image1" src="1.png" height="125px">
     <img id="image2" src="2.png" height="125px">
     <img id="image3" src="3.png" height="125px">
@@ -169,6 +255,8 @@ function displayWeather(type) {
     <img id="image7" src="7.png" height="125px">
     <img id="image8" src="8.png" height="125px">
     <img id="image9" src="9.png" height="125px">
+  </section>
+  <section id="picturesbox2" style="display:none">
     <img id="image10" src="10.png" height="125px">
     <img id="image11" src="11.png" height="125px">
     <img id="image12" src="12.png" height="125px">
@@ -180,15 +268,38 @@ function displayWeather(type) {
     <img id="image18" src="18.png" height="125px">
     <img id="image19" src="19.png" height="125px">
     <img id="image20" src="20.png" height="125px">
-  </section>
+ </section> 
+    <section id="picturesbox3" style="display:none">
+    <img id="image10" src="10.png" height="125px">
+    <img id="image11" src="11.png" height="125px">
+    <img id="image12" src="12.png" height="125px">
+    <img id="image13" src="13.png" height="125px">
+    <img id="image14" src="14.png" height="125px">
+    <img id="image15" src="15.png" height="125px">
+ </section> 
+   <section id="picturesbox4" style="display:none">
+    <img id="image10" src="10.png" height="125px">
+    <img id="image16" src="16.png" height="125px">
+    <img id="image17" src="17.png" height="125px">
+    <img id="image18" src="18.png" height="125px">
+    <img id="image19" src="19.png" height="125px">
+    <img id="image20" src="20.png" height="125px">
+ </section> 
+  <section id="picturesbox5" style="display:none">
+    <img id="image10" src="10.png" height="125px">
+    <img id="image16" src="16.png" height="125px">
+    <img id="image20" src="20.png" height="125px">
+ </section> 
+ <section id=defaultCloset style="display:block">
+ 	<img src="closet.png">
+ </section>
+
+ 
 <section id = "weather">
-<img id="spring" src="spring.png" style="display:none" width="500px" height="800px">
-<img id="summer" src="summer.png" style="display:none" width="500px" height="800px">
-<img id="fall" src="fall.png" style="display:none" width="500px" height="800px">
-<img id="winter" src="winter.png" style="display:none" width="500px" height="800px">
-</section>
-<section id = closet>
-<img src="closet.png" width="700px" height="800px">
+<img id="spring" src="spring.png" style="display:none" width="650px" height="800px">
+<img id="summer" src="summer.png" style="display:none" width="650px" height="800px">
+<img id="fall" src="fall.png" style="display:none" width="650px" height="800px">
+<img id="winter" src="winter.png" style="display:none" width="650px" height="800px">
 </section>
 
 </body>
