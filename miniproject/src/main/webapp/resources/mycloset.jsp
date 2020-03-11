@@ -81,11 +81,13 @@
 <script>
 var canvas, drop;
 function initiate(){
-
-  var images=document.querySelectorAll('#picturesbox1 > img');
-  for(var i=0; i<images.length; i++){
-    images[i].addEventListener('dragstart', dragged, false);
-    images[i].addEventListener('dragend', ending, false);
+  var images;
+  for(var k=0; k<6; k++){
+		images=document.querySelectorAll('#picturesbox'+ k + '> img');
+		for(var i=0; i<images.length; i++){
+		    images[i].addEventListener('dragstart', dragged, false);
+		    images[i].addEventListener('dragend', ending, false);
+		}
   }
 
   drop=document.getElementById('canvas');
@@ -298,6 +300,5 @@ function displayClothes(type) {
 <img id="fall" src="fall.png" style="display:none" width="660px" height="810px">
 <img id="winter" src="winter.png" style="display:none" width="660px" height="810px">
 </section>
-
 </body>
 </html>
