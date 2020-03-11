@@ -15,6 +15,7 @@
   		text-shadow : 3px 3px 5px skyblue;
   	}
   	.type{
+  		margin : 10px;
   		padding : 10px;
   	}
   	.wt{
@@ -81,7 +82,7 @@
 var canvas, drop;
 function initiate(){
 
-  var images=document.querySelectorAll('#picturesbox > img');
+  var images=document.querySelectorAll('#picturesbox1 > img');
   for(var i=0; i<images.length; i++){
     images[i].addEventListener('dragstart', dragged, false);
     images[i].addEventListener('dragend', ending, false);
@@ -108,9 +109,9 @@ function dropped(e){
 
   var posx=e.pageX-drop.offsetLeft;
   var posy=e.pageY-drop.offsetTop;
-
-  canvas.drawImage(elem,posx,posy,200,200);
- 
+  
+  canvas.drawImage(elem,posx-593,posy-204,125,125);
+  
 }
 window.addEventListener('load', initiate, false);
 
@@ -131,14 +132,9 @@ function loading() {
 }
 /*
 function randomcodi() {
-	document.write("<img src='" + Math.round(Math.random()*4+1) + ".gif'>");	//상의
-	document.write("<img src='" + Math.round(Math.random()*4+1) + ".gif'>");	//하의
-	document.write("<img src='" + Math.round(Math.random()*4+1) + ".gif'>");	//신발
-}
-
-function showlist() {
-	
-	
+	document.write("<img src='" + Math.round(Math.random()*4+1) + ".png'>");	//상의
+	document.write("<img src='" + Math.round(Math.random()*4+1) + ".png'>");	//하의
+	document.write("<img src='" + Math.round(Math.random()*4+1) + ".png'>");	//신발
 }
 */
 function displayWeather(type) {
@@ -291,15 +287,16 @@ function displayClothes(type) {
     <img id="image20" src="20.png" height="125px">
  </section> 
  <section id=defaultCloset style="display:block">
+ 	<br>
  	<img src="closet.png">
  </section>
 
  
 <section id = "weather">
-<img id="spring" src="spring.png" style="display:none" width="650px" height="800px">
-<img id="summer" src="summer.png" style="display:none" width="650px" height="800px">
-<img id="fall" src="fall.png" style="display:none" width="650px" height="800px">
-<img id="winter" src="winter.png" style="display:none" width="650px" height="800px">
+<img id="spring" src="spring.png" style="display:none" width="660px" height="810px">
+<img id="summer" src="summer.png" style="display:none" width="660px" height="810px">
+<img id="fall" src="fall.png" style="display:none" width="660px" height="810px">
+<img id="winter" src="winter.png" style="display:none" width="660px" height="810px">
 </section>
 
 </body>
