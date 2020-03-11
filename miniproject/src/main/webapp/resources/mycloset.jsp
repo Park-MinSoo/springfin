@@ -100,8 +100,12 @@ function ending(e){
  var elem=e.target;
 }
 function dragged(e){
+	//dataTransfer 에서 매핑명 설정을 바꾸어 주는 것이다. ex) wp001 -> fwp001
   var elem=e.target;
-  e.dataTransfer.setData('aa', elem.getAttribute('id'));
+	console.log(elem.getAttribute('id'));
+  var fit = '1' + elem.getAttribute('id');
+  	console.log(fit);
+  e.dataTransfer.setData('aa', 'f' + elem.getAttribute('id'));
   e.dataTransfer.setDragImage(e.target, 0, 0); 
 }
 function dropped(e){
@@ -244,8 +248,8 @@ function displayClothes(type) {
     <canvas id="canvas" width="650" height="800"></canvas>
   </section>
   <section id="picturesbox1" style="display:none">
-    <img id="image1" src="1.png" height="125px">
-    <img id="image2" src="2.png" height="125px">
+    <img id="logo" src="1.png" height="125px">
+    <img id="flogo" src="2.png" height="125px">
     <img id="image3" src="3.png" height="125px">
     <img id="image4" src="4.png" height="125px">
     <img id="image5" src="5.png" height="125px">
