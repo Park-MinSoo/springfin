@@ -8,22 +8,11 @@
 <style>
 	h1{
 		text-align : center;
-  		text-shadow : 3px 3px 5px skyblue;
+  		text-shadow : 10px 10px 15px black;
+  		color : grey;
   	}
   	div{
   		text-align : center;
-  		text-shadow : 3px 3px 5px skyblue;
-  	}
-  	.type{
-  		margin : 10px;
-  		padding : 10px;
-  	}
-  	.wt{
-  		padding : 10px;
-  	}
-  	#wtr{
-  		position : absolute;
-		left : 760px;
   	}
 	#dropbox {
 		position : absolute;
@@ -76,11 +65,7 @@
 		padding : 5px;
 		position : absolute;
 		left : 580px;
-		opacity : 0.75;
-	}
-	#closet{
-		padding : 5px;
-		opacity : 0.2;
+		opacity : 0.45;
 	}
 </style>
 <script>
@@ -120,7 +105,7 @@ function dropped(e){
   var posx=e.pageX-drop.offsetLeft;
   var posy=e.pageY-drop.offsetTop;
   
-  canvas.drawImage(elem,posx-593,posy-204,125,125);
+  canvas.drawImage(elem,posx-593,posy-204,350,350);
   
 }
 window.addEventListener('load', initiate, false);
@@ -221,34 +206,36 @@ function displayClothes(type) {
 
 </script>
 <body>
-<h1>나만의 스타일 코디</h1>
+<h1><img src="images/logo.png" height = "75px">Style Manager<img src="images/logo.png" height = "75px"></h1>
 <div>
+<p>
     <button onclick="save();">코디 저장하기</button>
     <button onclick="loading();">코디 읽어오기</button>
     <button onclick="del();">코디 지우기</button>
-    <br><br>
-</div>
-
+</p>
+<p>
   <!-- 옷장 탭구분 등록 fuction -->  
-    <button class="type" onclick="displayClothes(1);">상의</button>
-    <button class="type" onclick="displayClothes(2);">하의</button>
-    <button class="type" onclick="displayClothes(3);">신발</button>
-    <button class="type" onclick="displayClothes(4);">기타</button>
-    <button class="type" onclick="displayClothes(5);">추천 코디</button>
-    <button class="type" onclick="displayClothes(6);">옷장 문 닫기</button>
-    
-  <!-- 계절 BG 등록 fuction -->  
-<span id= "wtr">
-    <button class="wt" onclick="displayWeather(1);">봄</button>
-    <button class="wt" onclick="displayWeather(2);">여름</button>
-    <button class="wt" onclick="displayWeather(3);">가을</button>
-    <button class="wt" onclick="displayWeather(4);">겨울</button>
-    <button class="wt" onclick="displayWeather(5);">배경 없음</button><br>
-</span>
-
+    <button onclick="displayClothes(1);">상의</button>
+    <button onclick="displayClothes(2);">하의</button>
+    <button onclick="displayClothes(3);">신발</button>
+    <button onclick="displayClothes(4);">기타</button>
+    <button onclick="displayClothes(5);">SM's 추천 코디</button>
+    <button onclick="displayClothes(6);">옷장 문 닫기</button>
+  </p>
+  <p> 
+    <!-- 계절 BG 등록 fuction -->  
+    <button onclick="displayWeather(1);">봄</button>
+    <button onclick="displayWeather(2);">여름</button>
+    <button onclick="displayWeather(3);">가을</button>
+    <button onclick="displayWeather(4);">겨울</button>
+    <button onclick="displayWeather(5);">배경 없음</button>
+   </p>
+   </div>
+   
+	<br>
   <!-- 캔버스 영역 설정  -->
   <section id="dropbox">
-    <canvas id="canvas" width="650" height="800"></canvas>
+    <canvas id="canvas" width="650" height="1500"></canvas>
   </section>
    
    <!-- 상의 아이템 -->
