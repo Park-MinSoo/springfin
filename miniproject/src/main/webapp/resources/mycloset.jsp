@@ -16,6 +16,7 @@
   	}
 	#dropbox {
 		position : absolute;
+		z-index:1000;
 		left : 580px;
 		width : 650px;
 		height : 800px;
@@ -64,8 +65,9 @@
 	#weather{
 		padding : 5px;
 		position : absolute;
+		z-index:0;
 		left : 580px;
-		opacity : 0.45;
+		opacity : 0.9;
 	}
 </style>
 <script>
