@@ -69,7 +69,7 @@
 	}
 </style>
 <script>
-var canvas, drop;
+var canvas, drop1, drop2;
 function initiate(){
   var images;
   for(var k=0; k<7; k++){
@@ -80,11 +80,15 @@ function initiate(){
 		}
   }
 
-  drop=document.getElementById('canvas');
-  canvas=drop.getContext('2d');
+  drop1=document.getElementById('canvas');
+  drop2=document.getElementById('weather');
+  canvas=drop1.getContext('2d');
 
-  drop.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
-  drop.addEventListener('drop', dropped, false);
+  drop1.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
+  drop1.addEventListener('drop', dropped, false);
+  
+  drop2.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
+  drop2.addEventListener('drop', dropped, false);
 }
 function ending(e){
  var elem=e.target;
@@ -102,20 +106,19 @@ function dropped(e){
   var id=e.dataTransfer.getData('aa');
   var elem=document.getElementById(id);
 
-  var posx=e.pageX-drop.offsetLeft;
-  var posy=e.pageY-drop.offsetTop;
-  
+  var posx=e.pageX-drop1.offsetLeft;
+  var posy=e.pageY-drop1.offsetTop;
   canvas.drawImage(elem,posx-593,posy-204,350,350);
   
 }
 window.addEventListener('load', initiate, false);
 
 function save() {	
-    localStorage.setItem("canvas", drop.toDataURL());
+    localStorage.setItem("canvas", drop1.toDataURL());
 }
 	
 function del() {
- 	canvas.clearRect(0,0,drop.width,drop.height);
+ 	canvas.clearRect(0,0,drop1.width,drop1.height);
 }	
 	
 function loading() {	    
