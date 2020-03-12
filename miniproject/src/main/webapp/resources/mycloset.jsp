@@ -4,7 +4,7 @@
 <html>
 <head>
   <title>Style Manager</title>
-  <link rel="stylesheet" href="dragdrop.css">
+    <link rel="stylesheet" href="hover.css">  
 <style>
 	h1{
 		text-align : center;
@@ -221,7 +221,7 @@ function displayClothes(type) {
 
 </script>
 <body>
-<h1>나만의 옷장</h1>
+<h1>나만의 스타일 코디</h1>
 <div>
     <button onclick="save();">코디 저장하기</button>
     <button onclick="loading();">코디 읽어오기</button>
@@ -459,7 +459,6 @@ function displayClothes(type) {
  
  <!-- 착용샷 변환용 -->
  <section id="picturesbox6" style="display:none">
- 
  <!-- 여성 상의 --> 
     <img id="fwt001" src="images/fwt001.png" height="400px">
     <img id="fwt002" src="images/fwt002.png" height="400px">
