@@ -42,30 +42,35 @@
 		left : 5px;
 		width : 550px;
 		height : 800px;
+		overflow:scroll;
 	}
 	#picturesbox2 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
 		height : 800px;
+		overflow:scroll;
 	}
 	#picturesbox3 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
 		height : 800px;
+		overflow:scroll;
 	}
 	#picturesbox4 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
 		height : 800px;
+		overflow:scroll;
 	}
 	#picturesbox5 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
 		height : 800px;
+		overflow:scroll;
 	}
 	#weather{
 		padding : 5px;
@@ -218,7 +223,6 @@ function displayClothes(type) {
 <body>
 <h1>나만의 옷장</h1>
 <div>
-
     <button onclick="save();">코디 저장하기</button>
     <button onclick="loading();">코디 읽어오기</button>
     <button onclick="del();">코디 지우기</button>
@@ -230,7 +234,7 @@ function displayClothes(type) {
     <button class="type" onclick="displayClothes(2);">하의</button>
     <button class="type" onclick="displayClothes(3);">신발</button>
     <button class="type" onclick="displayClothes(4);">기타</button>
-    <button class="type" onclick="displayClothes(5);">오늘의 코디</button>
+    <button class="type" onclick="displayClothes(5);">추천 코디</button>
     <button class="type" onclick="displayClothes(6);">옷장 문 닫기</button>
     
   <!-- 계절 BG 등록 fuction -->  
@@ -249,6 +253,7 @@ function displayClothes(type) {
    
    <!-- 상의 아이템 -->
   <section id="picturesbox1" style="display:none">
+ 
   	<!-- 여성 상의 -->
   	<label>여성</label>
   	<hr>
@@ -325,7 +330,6 @@ function displayClothes(type) {
     <img id="mt036" src="images/mt036.png" height="125px">
     <img id="mt037" src="images/mt037.png" height="125px">
     <img id="mt038" src="images/mt038.png" height="125px"> 	
-  	
   </section>
   
    <!-- 하의 아이템 --> 
@@ -423,24 +427,34 @@ function displayClothes(type) {
 	<!-- 랜덤 아이템 --> 
   <section id="picturesbox5" style="display:none">
     <% 
-  	int shirt = (int)(Math.round(Math.random()*8+1));
-  	int pants = (int)(Math.round(Math.random()*8+1));
-  	int shoes = (int)(Math.round(Math.random()*8+1)); 
+  	int wshirtnum = (int)(Math.random()*31+1); // 상의 31개
+  	String wshirt = String.format("%03d",wshirtnum);
+  	int wpantsnum = (int)(Math.random()*21+1); // 하의 21개
+  	String wpants = String.format("%03d",wpantsnum);
+  	int wshoes = (int)(Math.random()*6+1); // 신발 6개
   	%>
   	<!-- 여성 랜덤 -->
   	<label>여성</label>
   	<hr>
-	<img id="wt00<%= shirt %>" src="images/wt00<%= shirt %>.png" height="125px">
-	<img id="wp00<%= pants %>" src="images/wp00<%= pants %>.png" height="125px">
-	<img id="ws00<%= shoes %>"src="images/ws00<%= shoes %>.png" height="125px">
+	<img id="wt<%= wshirt %>" src="images/wt<%= wshirt %>.png" height="125px">
+	<img id="wp<%= wpants %>" src="images/wp<%= wpants %>.png" height="125px">
+	<img id="ws00<%= wshoes %>"src="images/ws00<%= wshoes %>.png" height="125px">
+	
+	<% 
+  	int mshirtnum = (int)(Math.random()*37+1); // 상의 37개
+  	String mshirt = String.format("%03d",mshirtnum);
+  	int mpantsnum = (int)(Math.random()*8+1); // 하의 8개
+  	String mpants = String.format("%03d",mpantsnum);
+  	int mshoes = (int)(Math.random()*6+1); // 신발 6개
+  	%>
 	
    	<!-- 남성 랜덤 -->
    	<br>
   	<label>남성</label>
   	<hr>
-    <img id="image10" src="10.png" height="125px">
-    <img id="image16" src="16.png" height="125px">
-    <img id="image20" src="20.png" height="125px">   
+	<img id="mt<%= mshirt %>" src="images/mt<%= mshirt %>.png" height="125px">
+	<img id="mp<%= mpants %>" src="images/mp<%= mpants %>.png" height="125px">
+	<img id="ms00<%= mshoes %>"src="images/ms00<%= mshoes %>.png" height="125px">  
  </section> 
  
  <!-- 착용샷 변환용 -->
@@ -588,7 +602,6 @@ function displayClothes(type) {
  	<img src="images/closet.png">
  </section>
 
- 
 <section id = "weather">
 <img id="spring" src="images/spring.png" style="display:none" width="660px" height="810px">
 <img id="summer" src="images/summer.png" style="display:none" width="660px" height="810px">
