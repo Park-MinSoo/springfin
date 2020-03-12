@@ -100,7 +100,6 @@ function ending(e){
  var elem=e.target;
 }
 function dragged(e){
-	//dataTransfer 에서 매핑명 설정을 바꾸어 주는 것이다. ex) wp001 -> fwp001
   var elem=e.target;
 	console.log(elem.getAttribute('id'));
   var fit = 'f' + elem.getAttribute('id');
@@ -136,13 +135,7 @@ function loading() {
     	canvas.drawImage(img, 0, 0);
     }
 }
-/*
-function randomcodi() {
-	document.write("<img src='" + Math.round(Math.random()*4+1) + ".png'>");	//상의 t
-	document.write("<img src='" + Math.round(Math.random()*4+1) + ".png'>");	//하의 p
-	document.write("<img src='" + Math.round(Math.random()*4+1) + ".png'>");	//신발 s
-}
-*/
+
 function displayWeather(type) {
 	if(type == 1) {
 		document.getElementById("spring").style.display='block';
@@ -231,12 +224,16 @@ function displayClothes(type) {
     <button onclick="del();">코디 지우기</button>
     <br><br>
 </div>
+
+  <!-- 옷장 탭구분 등록 fuction -->  
     <button class="type" onclick="displayClothes(1);">상의</button>
     <button class="type" onclick="displayClothes(2);">하의</button>
     <button class="type" onclick="displayClothes(3);">신발</button>
     <button class="type" onclick="displayClothes(4);">기타</button>
     <button class="type" onclick="displayClothes(5);">오늘의 코디</button>
     <button class="type" onclick="displayClothes(6);">옷장 문 닫기</button>
+    
+  <!-- 계절 BG 등록 fuction -->  
 <span id= "wtr">
     <button class="wt" onclick="displayWeather(1);">봄</button>
     <button class="wt" onclick="displayWeather(2);">여름</button>
@@ -244,9 +241,13 @@ function displayClothes(type) {
     <button class="wt" onclick="displayWeather(4);">겨울</button>
     <button class="wt" onclick="displayWeather(5);">배경 없음</button><br>
 </span>
+
+  <!-- 캔버스 영역 설정  -->
   <section id="dropbox">
     <canvas id="canvas" width="650" height="800"></canvas>
   </section>
+   
+   <!-- 상의 아이템 -->
   <section id="picturesbox1" style="display:none">
   	<!-- 여성 상의 -->
   	<label>여성</label>
@@ -327,7 +328,9 @@ function displayClothes(type) {
   	
   </section>
   
+   <!-- 하의 아이템 --> 
   <section id="picturesbox2" style="display:none">
+  
   <!-- 여성 하의 -->
     <label>여성</label>
   	<hr>
@@ -368,6 +371,7 @@ function displayClothes(type) {
     <img id="mp009" src="images/mp009.png" height="125px">
  </section> 
  
+   <!-- 신발 아이템-->
   <section id="picturesbox3" style="display:none">
     <!-- 여성 신발 -->
     <label>여성</label>
@@ -386,6 +390,7 @@ function displayClothes(type) {
   	
  </section> 
  
+   <!-- 기타 아이템 -->
    <section id="picturesbox4" style="display:none">
    <!-- 여성 기타 -->
     <label>여성</label>
@@ -414,15 +419,21 @@ function displayClothes(type) {
     <img id="me014" src="images/me014.png" height="125px">
     <img id="me015" src="images/me015.png" height="125px">    	
  </section> 
- 
+
+	<!-- 랜덤 아이템 --> 
   <section id="picturesbox5" style="display:none">
+    <% 
+  	int shirt = (int)(Math.round(Math.random()*8+1));
+  	int pants = (int)(Math.round(Math.random()*8+1));
+  	int shoes = (int)(Math.round(Math.random()*8+1)); 
+  	%>
   	<!-- 여성 랜덤 -->
   	<label>여성</label>
   	<hr>
-    <img id="image10" src="10.png" height="125px">
-    <img id="image16" src="16.png" height="125px">
-    <img id="image20" src="20.png" height="125px">
-    
+	<img id="wt00<%= shirt %>" src="images/wt00<%= shirt %>.png" height="125px">
+	<img id="wp00<%= pants %>" src="images/wp00<%= pants %>.png" height="125px">
+	<img id="ws00<%= shoes %>"src="images/ws00<%= shoes %>.png" height="125px">
+	
    	<!-- 남성 랜덤 -->
    	<br>
   	<label>남성</label>
