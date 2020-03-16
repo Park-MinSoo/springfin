@@ -387,7 +387,12 @@ function displayClothes(type) {
     <br>
     <label>남성</label>
   	<hr>
-  	
+  	<img id="ms001" src="http://70.12.115.167:8000/miniproject/resources/images/ms001.png" width="94.69px" height="125px">
+    <img id="ms002" src="http://70.12.115.167:8000/miniproject/resources/images/ms002.png" width="94.69px" height="125px">
+    <img id="ms003" src="http://70.12.115.167:8000/miniproject/resources/images/ms003.png" width="94.69px" height="125px">
+    <img id="ms004" src="http://70.12.115.167:8000/miniproject/resources/images/ms004.png" width="94.69px" height="125px">
+    <img id="ms005" src="http://70.12.115.167:8000/miniproject/resources/images/ms005.png" width="94.69px" height="125px">
+    <img id="ms006" src="http://70.12.115.167:8000/miniproject/resources/images/ms006.png" width="94.69px" height="125px">
  </section> 
  
    <!-- 기타 아이템 -->
@@ -568,7 +573,15 @@ function displayClothes(type) {
     <img id="fws004" src="http://70.12.115.167:8000/miniproject/resources/images/fws004.png" height="125px">
     <img id="fws005" src="http://70.12.115.167:8000/miniproject/resources/images/fws005.png" height="125px">
     <img id="fws006" src="http://70.12.115.167:8000/miniproject/resources/images/fws006.png" height="125px">
-    
+
+<!-- 남성 신발 -->
+    <img id="fms001" src="http://70.12.115.167:8000/miniproject/resources/images/fms001.png" height="125px">
+    <img id="fms002" src="http://70.12.115.167:8000/miniproject/resources/images/fms002.png" height="125px">
+    <img id="fms003" src="http://70.12.115.167:8000/miniproject/resources/images/fms003.png" height="125px">
+    <img id="fms004" src="http://70.12.115.167:8000/miniproject/resources/images/fms004.png" height="125px">
+    <img id="fms005" src="http://70.12.115.167:8000/miniproject/resources/images/fms005.png" height="125px">
+    <img id="fms006" src="http://70.12.115.167:8000/miniproject/resources/images/fms006.png" height="125px">
+        
 <!-- 여성 기타 -->
     <img id="fwe002" src="http://70.12.115.167:8000/miniproject/resources/images/fwe002.png" height="200px">
     <img id="fwe003" src="http://70.12.115.167:8000/miniproject/resources/images/fwe003.png" height="200px">
