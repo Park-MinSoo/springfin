@@ -9,6 +9,21 @@ public class BoardVO {
 	private int cnt;
 	private int tup;
 	private String type;
+	private String uri;
+	private String location;
+	
+	public String getUri() {
+		return uri;
+	}
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
 	public int getId() {
 		return id;
 	}
@@ -62,4 +77,6 @@ public class BoardVO {
 		return "BoardVO [id=" + id + ", writer=" + writer + ", title=" + title + ", content=" + content + ", writedate="
 				+ writedate + ", cnt=" + cnt + ", tup=" + tup + ", type=" + type + "]";
 	}
+	
+	
 }

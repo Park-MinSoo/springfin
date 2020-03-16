@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resource.memberMapper">
+ 	<select id="loginCheck" resultType="String">
+ 		select sm_id from smmember
+ 		where sm_id=#{sm_id} and sm_pwd=#{sm_pwd}
+ 	</select>
+ 	
+ 	<select id="viewMember" resultType="vo.MemberVO">
+ 		select sm_id, nic from smmember
+ 		where sm_id=#{sm_id} and sm_pwd=#{sm_pwd}
+ 	</select>
+ 	
+ 	<insert id="insertMember" parameterType="vo.MemberVO">
+		Insert into smmember(
+		    sm_id
+		    ,sm_pwd
+		    ,nic
+		    ,name
+		    ,age
+		    ,height
+		    ,weight
+		    ,gender
+		    ,joindate
+		    ,address
+		    ,stylepoint
+	    )values(
+	    	#{sm_id}
+		    ,#{sm_pwd}
+		    ,#{nic}
+		    ,#{name}
+		    ,#{age}
+		    ,#{height}
+		    ,#{weight}
+		    ,#{gender}
+		    ,sysdate
+		    ,#{address}
+		    ,0
+		)
+	</insert>
+ 	
+ 	<select id="idCheck" parameterType="String" resultType="_int">
+ 		select count(sm_id) from smmember where sm_id=#{sm_id}
+ 	</select>
+</mapper>

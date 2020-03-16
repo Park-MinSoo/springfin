@@ -7,6 +7,7 @@ public class ReplyVO {
 	private String re_writedate;
 	private int re_select;
 	private int re_tup;
+	
 	public int getRe_id() {
 		return re_id;
 	}
