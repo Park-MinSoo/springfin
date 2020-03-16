@@ -83,7 +83,7 @@ function initiate(){
   }
 
   drop1=document.getElementById('canvas');
-  drop2=document.getElementById('weather');
+  drop2=document.getElementById('weather');	// 그림위에도 이미지를 드래그 앤 드롭 가능하게 하기위하여 구현
   canvas=drop1.getContext('2d');
 
   drop1.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
@@ -91,6 +91,7 @@ function initiate(){
   
   drop2.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
   drop2.addEventListener('drop', dropped, false);
+	//그림위에도 이미지를 드래그 앤 드롭 가능하게 하기위하여 구현
 }
 function ending(e){
  var elem=e.target;
@@ -100,7 +101,8 @@ function dragged(e){
 	console.log(elem.getAttribute('id'));
   var fit = 'f' + elem.getAttribute('id');
   	console.log(fit);
-  e.dataTransfer.setData('aa', 'f' + elem.getAttribute('id'));
+  e.dataTransfer.setData('aa', 'f' + elem.getAttribute('id'));	
+  // Data에 Set할때 id를 받아와 앞에 f를 붙여 담아냄으로 이미지를 드래그 앤 드롭 했을 때 제품샷이 -> 착용샷으로 변경되게 끔 설정.
   e.dataTransfer.setDragImage(e.target, 0, 0); 
 }
 function dropped(e){
@@ -111,7 +113,7 @@ function dropped(e){
   var posx=e.pageX-drop1.offsetLeft;
   var posy=e.pageY-drop1.offsetTop;
   canvas.drawImage(elem,posx-593,posy-204,350,350);
-  
+  //캔버스에 이미지가 들어가게될 위치의 영점조절 및 350px,350px의 크기로 들어가 지게끔 설정.
 }
 window.addEventListener('load', initiate, false);
 
@@ -130,7 +132,7 @@ function loading() {
     	canvas.drawImage(img, 0, 0);
     }
 }
-
+// tpo에 따른 계절 배경이 해당 버튼마다 나타났다 사라지는 display 함수 구현 
 function displayWeather(type) {
 	if(type == 1) {
 		document.getElementById("spring").style.display='block';
@@ -160,7 +162,7 @@ function displayWeather(type) {
 		document.getElementById("winter").style.display='none';
 	}
 }
-
+// 옷장 이미지와 상의, 하의, 신발, 기타, 랜덤의 분류 버튼을 나타내줄 display 함수 구현
 function displayClothes(type) {
 	if(type == 1) {
 		document.getElementById("defaultCloset").style.display='none';
