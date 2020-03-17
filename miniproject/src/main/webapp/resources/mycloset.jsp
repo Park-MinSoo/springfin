@@ -4,15 +4,31 @@
 <html>
 <head>
   <title>Style Manager</title>
+  	<link href="https://fonts.googleapis.com/css?family=Poor Story:400" rel="stylesheet">
     <link rel="stylesheet" href="hover.css">  
 <style>
 	h1{
+		font-family : Poor Story;
+		font-size : 65px;
 		text-align : center;
   		text-shadow : 10px 10px 15px black;
-  		color : grey;
+  		color : #fff;
   	}
+  	label{
+  		font-family : Poor Story;
+  		font-size : 17px;
+  		font-weight : bold;
+  	  	color : grey;
+  	}
+  	
   	div{
   		text-align : center;
+  	}
+  	html{
+  		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/back3.png);
+  		background-repeat : no-repeat;
+   		background-position : center;
+		background-size : cover;
   	}
 	#dropbox {
 		position : absolute;
@@ -117,7 +133,7 @@ function dropped(e){
 }
 window.addEventListener('load', initiate, false);
 
-function save() {	
+function save() {
     localStorage.setItem("canvas", drop1.toDataURL());
 }
 	
@@ -125,7 +141,7 @@ function del() {
  	canvas.clearRect(0,0,drop1.width,drop1.height);
 }	
 	
-function loading() {	    
+function loading() {
 	var img = new Image();
     img.src = localStorage.getItem("canvas");
     img.onload = function() {
@@ -213,6 +229,7 @@ function displayClothes(type) {
 
 </script>
 <body>
+<br>
 <h1><img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "75px">Style Manager<img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "75px"></h1>
 <div>
 
@@ -242,7 +259,6 @@ function displayClothes(type) {
     <button onclick="displayWeather(5);">배경 없음</button>
    </p>
    </div>
-   
 	<br>
   <!-- 캔버스 영역 설정  -->
   <section id="dropbox">
@@ -253,6 +269,7 @@ function displayClothes(type) {
   <section id="picturesbox1" style="display:none">
  
   	<!-- 여성 상의 -->
+  	<br>
   	<label>여성</label>
   	<hr>
     <img id="wt001" src="http://70.12.115.167:8000/miniproject/resources/images/wt001.png" height="125px">
@@ -334,6 +351,7 @@ function displayClothes(type) {
   <section id="picturesbox2" style="display:none">
   
   <!-- 여성 하의 -->
+   	<br> 
     <label>여성</label>
   	<hr>
     <img id="wp001" src="http://70.12.115.167:8000/miniproject/resources/images/wp001.png" height="125px">
@@ -376,6 +394,7 @@ function displayClothes(type) {
    <!-- 신발 아이템-->
   <section id="picturesbox3" style="display:none">
     <!-- 여성 신발 -->
+  	<br>
     <label>여성</label>
   	<hr>
     <img id="ws001" src="http://70.12.115.167:8000/miniproject/resources/images/ws001.png" height="125px">
@@ -400,6 +419,7 @@ function displayClothes(type) {
    <!-- 기타 아이템 -->
    <section id="picturesbox4" style="display:none">
    <!-- 여성 기타 -->
+    <br>
     <label>여성</label>
   	<hr>
     <img id="we002" src="http://70.12.115.167:8000/miniproject/resources/images/we002.png" height="125px">   
@@ -437,6 +457,7 @@ function displayClothes(type) {
   	int wshoes = (int)(Math.random()*6+1); // 신발 6개
   	%>
   	<!-- 여성 랜덤 -->
+  	<br>
   	<label>여성</label>
   	<hr>
 	<img id="wt<%= wshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/wt<%= wshirt %>.png" height="125px">
@@ -457,7 +478,7 @@ function displayClothes(type) {
   	<hr>
 	<img id="mt<%= mshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/mt<%= mshirt %>.png" height="125px">
 	<img id="mp<%= mpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/mp<%= mpants %>.png" height="125px">
-	<img id="ms00<%= mshoes %>"src="http://70.12.115.167:8000/miniproject/resources/images/ms00<%= mshoes %>.png" height="125px">  
+	<img id="ms00<%= mshoes %>"src="http://70.12.115.167:8000/miniproject/resources/images/ms00<%= mshoes %>.png" width="94.69px" height="125px">  
  </section> 
  
  <!-- 착용샷 변환용 -->
@@ -613,6 +634,7 @@ function displayClothes(type) {
  </section>
 
 <section id = "weather">
+<br>
 <img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none" width="660px" height="810px">
 <img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none" width="660px" height="810px">
 <img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none" width="660px" height="810px">
