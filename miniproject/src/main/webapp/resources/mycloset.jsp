@@ -94,6 +94,8 @@
 </style>
 <script>
 var canvas, drop1, drop2;
+var imgInfo = new Array();
+
 function initiate(){
   var images;
   for(var k=0; k<7; k++){
@@ -136,6 +138,11 @@ function dropped(e){
   var posy=e.pageY-drop1.offsetTop;
   canvas.drawImage(elem,posx-593,posy-434);
   //캔버스에 이미지가 들어가게될 위치의 영점조절(-593,-434)및 해당 크기로 들어가 지게끔 설정.
+  
+  
+  imgInfo.push({imgDom:elem, imgX:posx-593, imgY:posy-434}); //착용정보의 이미지 태그가 담김
+  console.log(imgInfo);
+  
 }
 window.addEventListener('load', initiate, false);
 
@@ -145,6 +152,7 @@ function save() {
 	
 function del() {
  	canvas.clearRect(0,0,drop1.width,drop1.height);
+ 	// (0,0)좌표 부터 (drop1.width,drop1.height)의 영역 만큼 제거
 }	
 	
 function loading() {
@@ -154,6 +162,18 @@ function loading() {
     	canvas.drawImage(img, 0, 0);
     }
 }
+
+function cancel() {
+	imgInfo.pop();
+
+	canvas.clearRect(0,0,drop1.width,drop1.height);// 먼저 화면 비우고
+	
+	for(int i = 1; i <= imgInfo.length; i++){
+		canvas.drawImage(imgInfo[i]);
+ 		//imgInfo 에 담긴 객체를 가지고 순서대로 전부 drawImage
+	}
+}
+
 // tpo에 따른 계절 배경이 해당 버튼마다 나타났다 사라지는 display 함수 구현 
 function displayWeather(type) {
 	if(type == 1) {
@@ -249,6 +269,7 @@ function displayClothes(type) {
     <button onclick="save();">코디 저장하기</button>
     <button onclick="loading();">코디 읽어오기</button>
     <button onclick="del();">코디 지우기</button>
+    <button onclick="cancel();">직전 코디 취소하기</button>
 </p>
 
   <!-- 옷장 탭구분 등록 fuction -->
