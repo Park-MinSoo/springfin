@@ -40,42 +40,47 @@
 	#defaultCloset {
 		position : absolute;
 		left : 5px;
+		top : 450px;
 		width : 550px;
 		height : 800px;
+		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/closet.png);
+  		background-repeat : no-repeat;
+  		z-index: -1000;
+  		
 	}
 	#picturesbox1 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 800px;
+		height : 820px;
 		overflow:scroll;
 	}
 	#picturesbox2 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 800px;
+		height : 820px;
 		overflow:scroll;
 	}
 	#picturesbox3 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 800px;
+		height : 820px;
 		overflow:scroll;
 	}
 	#picturesbox4 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 800px;
+		height : 820px;
 		overflow:scroll;
 	}
 	#picturesbox5 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 800px;
+		height : 820px;
 		overflow:scroll;
 	}
 	#weather{
@@ -181,28 +186,28 @@ function displayWeather(type) {
 // 옷장 이미지와 상의, 하의, 신발, 기타, 랜덤의 분류 버튼을 나타내줄 display 함수 구현
 function displayClothes(type) {
 	if(type == 1) {
-		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("defaultCloset").style.opacity='0.3';
 		document.getElementById("picturesbox1").style.display='block';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='none';
 		document.getElementById("picturesbox4").style.display='none';
 		document.getElementById("picturesbox5").style.display='none';
 	}else if(type == 2) {
-		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("defaultCloset").style.opacity='0.3';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='block';
 		document.getElementById("picturesbox3").style.display='none';
 		document.getElementById("picturesbox4").style.display='none';
 		document.getElementById("picturesbox5").style.display='none';
 	}else if(type == 3){
-		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("defaultCloset").style.opacity='0.3';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='block';
 		document.getElementById("picturesbox4").style.display='none';	
 		document.getElementById("picturesbox5").style.display='none';
 	}else if(type == 4){
-		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("defaultCloset").style.opacity='0.3';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='none';
@@ -210,7 +215,7 @@ function displayClothes(type) {
 		document.getElementById("picturesbox5").style.display='none';
 	}
 	else if(type == 5){
-		document.getElementById("defaultCloset").style.display='none';
+		document.getElementById("defaultCloset").style.opacity='0.3';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='none';
@@ -218,7 +223,7 @@ function displayClothes(type) {
 		document.getElementById("picturesbox5").style.display='block';
 	}
 	else if(type == 6){
-		document.getElementById("defaultCloset").style.display='block';
+		document.getElementById("defaultCloset").style.opacity='1.0';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='none';
@@ -628,9 +633,8 @@ function displayClothes(type) {
     <img id="fme015" src="http://70.12.115.167:8000/miniproject/resources/images/fme015.png" height="125px">
  </section> 
  
- <section id=defaultCloset style="display:block">
- 	<br>
- 	<img src="http://70.12.115.167:8000/miniproject/resources/images/closet.png">
+ <section id=defaultCloset>
+	<br>
  </section>
 
 <section id = "weather">
