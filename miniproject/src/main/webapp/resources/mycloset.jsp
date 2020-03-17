@@ -230,7 +230,7 @@ function displayClothes(type) {
 </script>
 <body>
 <br>
-<h1><img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "75px">Style Manager<img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "75px"></h1>
+<h1><img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "120px">Style Manager<img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "120px"></h1>
 <div>
 
   <!-- 코디 저장 및 불러오기 fuction -->
@@ -270,7 +270,7 @@ function displayClothes(type) {
  
   	<!-- 여성 상의 -->
   	<br>
-  	<label>여성</label>
+  	<label>◎ 여성 ◎</label>
   	<hr>
     <img id="wt001" src="http://70.12.115.167:8000/miniproject/resources/images/wt001.png" height="125px">
     <img id="wt002" src="http://70.12.115.167:8000/miniproject/resources/images/wt002.png" height="125px">
@@ -306,7 +306,7 @@ function displayClothes(type) {
     
     <!-- 남성 상의 -->
     <br>
-    <label>남성</label>
+    <label>◎ 남성 ◎</label>
   	<hr>
     <img id="mt001" src="http://70.12.115.167:8000/miniproject/resources/images/mt001.png" height="125px">
     <img id="mt002" src="http://70.12.115.167:8000/miniproject/resources/images/mt002.png" height="125px">
@@ -352,7 +352,7 @@ function displayClothes(type) {
   
   <!-- 여성 하의 -->
    	<br> 
-    <label>여성</label>
+    <label>◎ 여성 ◎</label>
   	<hr>
     <img id="wp001" src="http://70.12.115.167:8000/miniproject/resources/images/wp001.png" height="125px">
     <img id="wp002" src="http://70.12.115.167:8000/miniproject/resources/images/wp002.png" height="125px">
@@ -378,7 +378,7 @@ function displayClothes(type) {
     
   <!-- 남성 하의 -->
   	<br>
-    <label>남성</label>
+    <label>◎ 남성 ◎</label>
   	<hr>
     <img id="mp001" src="http://70.12.115.167:8000/miniproject/resources/images/mp001.png" height="125px">
     <img id="mp002" src="http://70.12.115.167:8000/miniproject/resources/images/mp002.png" height="125px">
@@ -395,7 +395,7 @@ function displayClothes(type) {
   <section id="picturesbox3" style="display:none">
     <!-- 여성 신발 -->
   	<br>
-    <label>여성</label>
+    <label>◎ 여성 ◎</label>
   	<hr>
     <img id="ws001" src="http://70.12.115.167:8000/miniproject/resources/images/ws001.png" height="125px">
     <img id="ws002" src="http://70.12.115.167:8000/miniproject/resources/images/ws002.png" height="125px">
@@ -406,7 +406,7 @@ function displayClothes(type) {
     
     <!-- 남성 신발 -->
     <br>
-    <label>남성</label>
+    <label>◎ 남성 ◎</label>
   	<hr>
   	<img id="ms001" src="http://70.12.115.167:8000/miniproject/resources/images/ms001.png" width="94.69px" height="125px">
     <img id="ms002" src="http://70.12.115.167:8000/miniproject/resources/images/ms002.png" width="94.69px" height="125px">
@@ -420,7 +420,7 @@ function displayClothes(type) {
    <section id="picturesbox4" style="display:none">
    <!-- 여성 기타 -->
     <br>
-    <label>여성</label>
+    <label>◎ 여성 ◎</label>
   	<hr>
     <img id="we002" src="http://70.12.115.167:8000/miniproject/resources/images/we002.png" height="125px">   
     <img id="we003" src="http://70.12.115.167:8000/miniproject/resources/images/we003.png" height="125px">
@@ -432,7 +432,7 @@ function displayClothes(type) {
     
     <!-- 남성 기타 -->
     <br>
-    <label>남성</label>
+    <label>◎ 남성 ◎</label>
   	<hr>
     <img id="me001" src="http://70.12.115.167:8000/miniproject/resources/images/me001.png" height="125px">
     <img id="me004" src="http://70.12.115.167:8000/miniproject/resources/images/me004.png" height="125px">
@@ -458,7 +458,7 @@ function displayClothes(type) {
   	%>
   	<!-- 여성 랜덤 -->
   	<br>
-  	<label>여성</label>
+  	<label>◎ 여성 ◎</label>
   	<hr>
 	<img id="wt<%= wshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/wt<%= wshirt %>.png" height="125px">
 	<img id="wp<%= wpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/wp<%= wpants %>.png" height="125px">
@@ -474,7 +474,7 @@ function displayClothes(type) {
 	
    	<!-- 남성 랜덤 -->
    	<br>
-  	<label>남성</label>
+  	<label>◎ 남성 ◎</label>
   	<hr>
 	<img id="mt<%= mshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/mt<%= mshirt %>.png" height="125px">
 	<img id="mp<%= mpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/mp<%= mpants %>.png" height="125px">
