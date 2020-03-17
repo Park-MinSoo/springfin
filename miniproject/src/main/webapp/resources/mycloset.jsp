@@ -134,8 +134,8 @@ function dropped(e){
 
   var posx=e.pageX-drop1.offsetLeft;
   var posy=e.pageY-drop1.offsetTop;
-  canvas.drawImage(elem,posx-593,posy-304);
-  //캔버스에 이미지가 들어가게될 위치의 영점조절(-593,-304)및 해당 크기로 들어가 지게끔 설정.
+  canvas.drawImage(elem,posx-593,posy-434);
+  //캔버스에 이미지가 들어가게될 위치의 영점조절(-593,-434)및 해당 크기로 들어가 지게끔 설정.
 }
 window.addEventListener('load', initiate, false);
 
