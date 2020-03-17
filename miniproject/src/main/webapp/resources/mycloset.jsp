@@ -15,6 +15,7 @@
   		color : #fff;
   	}
   	label{
+  		text-align : center;
   		font-family : Poor Story;
   		font-size : 17px;
   		font-weight : bold;
@@ -25,7 +26,7 @@
   		text-align : center;
   	}
   	html{
-  		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/back3.png);
+  		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/back33.png);
   		background-repeat : no-repeat;
    		background-position : center;
 		background-size : cover;
@@ -156,27 +157,32 @@ function loading() {
 // tpo에 따른 계절 배경이 해당 버튼마다 나타났다 사라지는 display 함수 구현 
 function displayWeather(type) {
 	if(type == 1) {
+		document.getElementById("backimg").style.display='none';
 		document.getElementById("spring").style.display='block';
 		document.getElementById("summer").style.display='none';
 		document.getElementById("fall").style.display='none';
 		document.getElementById("winter").style.display='none';
 
 	}else if(type == 2) {
+		document.getElementById("backimg").style.display='none';
 		document.getElementById("spring").style.display='none';
 		document.getElementById("summer").style.display='block';
 		document.getElementById("fall").style.display='none';
 		document.getElementById("winter").style.display='none';
 	}else if(type == 3){
+		document.getElementById("backimg").style.display='none';
 		document.getElementById("spring").style.display='none';
 		document.getElementById("summer").style.display='none';
 		document.getElementById("fall").style.display='block';
 		document.getElementById("winter").style.display='none';	
 	}else if(type == 4){
+		document.getElementById("backimg").style.display='none';
 		document.getElementById("spring").style.display='none';
 		document.getElementById("summer").style.display='none';
 		document.getElementById("fall").style.display='none';
 		document.getElementById("winter").style.display='block';
 	}else if(type == 5){
+		document.getElementById("backimg").style.display='none';
 		document.getElementById("spring").style.display='none';
 		document.getElementById("summer").style.display='none';
 		document.getElementById("fall").style.display='none';
@@ -276,7 +282,7 @@ function displayClothes(type) {
   	<!-- 여성 상의 -->
   	<br>
   	<label>◎ 여성 ◎</label>
-  	<hr>
+  	<br>
     <img id="wt001" src="http://70.12.115.167:8000/miniproject/resources/images/wt001.png" height="125px">
     <img id="wt002" src="http://70.12.115.167:8000/miniproject/resources/images/wt002.png" height="125px">
     <img id="wt003" src="http://70.12.115.167:8000/miniproject/resources/images/wt003.png" height="125px">
@@ -312,7 +318,7 @@ function displayClothes(type) {
     <!-- 남성 상의 -->
     <br>
     <label>◎ 남성 ◎</label>
-  	<hr>
+  	<br>
     <img id="mt001" src="http://70.12.115.167:8000/miniproject/resources/images/mt001.png" height="125px">
     <img id="mt002" src="http://70.12.115.167:8000/miniproject/resources/images/mt002.png" height="125px">
     <img id="mt003" src="http://70.12.115.167:8000/miniproject/resources/images/mt003.png" height="125px">
@@ -358,7 +364,7 @@ function displayClothes(type) {
   <!-- 여성 하의 -->
    	<br> 
     <label>◎ 여성 ◎</label>
-  	<hr>
+  	<br>
     <img id="wp001" src="http://70.12.115.167:8000/miniproject/resources/images/wp001.png" height="125px">
     <img id="wp002" src="http://70.12.115.167:8000/miniproject/resources/images/wp002.png" height="125px">
     <img id="wp003" src="http://70.12.115.167:8000/miniproject/resources/images/wp003.png" height="125px">
@@ -384,7 +390,7 @@ function displayClothes(type) {
   <!-- 남성 하의 -->
   	<br>
     <label>◎ 남성 ◎</label>
-  	<hr>
+  	<br>
     <img id="mp001" src="http://70.12.115.167:8000/miniproject/resources/images/mp001.png" height="125px">
     <img id="mp002" src="http://70.12.115.167:8000/miniproject/resources/images/mp002.png" height="125px">
     <img id="mp003" src="http://70.12.115.167:8000/miniproject/resources/images/mp003.png" height="125px">
@@ -401,7 +407,7 @@ function displayClothes(type) {
     <!-- 여성 신발 -->
   	<br>
     <label>◎ 여성 ◎</label>
-  	<hr>
+  	<br>
     <img id="ws001" src="http://70.12.115.167:8000/miniproject/resources/images/ws001.png" height="125px">
     <img id="ws002" src="http://70.12.115.167:8000/miniproject/resources/images/ws002.png" height="125px">
     <img id="ws003" src="http://70.12.115.167:8000/miniproject/resources/images/ws003.png" height="125px">
@@ -412,7 +418,7 @@ function displayClothes(type) {
     <!-- 남성 신발 -->
     <br>
     <label>◎ 남성 ◎</label>
-  	<hr>
+  	<br>
   	<img id="ms001" src="http://70.12.115.167:8000/miniproject/resources/images/ms001.png" width="94.69px" height="125px">
     <img id="ms002" src="http://70.12.115.167:8000/miniproject/resources/images/ms002.png" width="94.69px" height="125px">
     <img id="ms003" src="http://70.12.115.167:8000/miniproject/resources/images/ms003.png" width="94.69px" height="125px">
@@ -426,7 +432,7 @@ function displayClothes(type) {
    <!-- 여성 기타 -->
     <br>
     <label>◎ 여성 ◎</label>
-  	<hr>
+  	<br>
     <img id="we002" src="http://70.12.115.167:8000/miniproject/resources/images/we002.png" height="125px">   
     <img id="we003" src="http://70.12.115.167:8000/miniproject/resources/images/we003.png" height="125px">
     <img id="we004" src="http://70.12.115.167:8000/miniproject/resources/images/we004.png" height="125px">
@@ -438,7 +444,7 @@ function displayClothes(type) {
     <!-- 남성 기타 -->
     <br>
     <label>◎ 남성 ◎</label>
-  	<hr>
+  	<br>
     <img id="me001" src="http://70.12.115.167:8000/miniproject/resources/images/me001.png" height="125px">
     <img id="me004" src="http://70.12.115.167:8000/miniproject/resources/images/me004.png" height="125px">
     <img id="me006" src="http://70.12.115.167:8000/miniproject/resources/images/me006.png" height="125px">
@@ -464,7 +470,7 @@ function displayClothes(type) {
   	<!-- 여성 랜덤 -->
   	<br>
   	<label>◎ 여성 ◎</label>
-  	<hr>
+  	<br>
 	<img id="wt<%= wshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/wt<%= wshirt %>.png" height="125px">
 	<img id="wp<%= wpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/wp<%= wpants %>.png" height="125px">
 	<img id="ws00<%= wshoes %>"src="http://70.12.115.167:8000/miniproject/resources/images/ws00<%= wshoes %>.png" height="125px">
@@ -480,7 +486,7 @@ function displayClothes(type) {
    	<!-- 남성 랜덤 -->
    	<br>
   	<label>◎ 남성 ◎</label>
-  	<hr>
+  	<br>
 	<img id="mt<%= mshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/mt<%= mshirt %>.png" height="125px">
 	<img id="mp<%= mpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/mp<%= mpants %>.png" height="125px">
 	<img id="ms00<%= mshoes %>"src="http://70.12.115.167:8000/miniproject/resources/images/ms00<%= mshoes %>.png" width="94.69px" height="125px">  
@@ -637,8 +643,13 @@ function displayClothes(type) {
 	<br>
  </section>
 
+	<% 
+  	int rand = (int)(Math.random()*7+1); // 랜덤 백이미지 출력
+  	%>
+
 <section id = "weather">
 <br>
+<img id="backimg" src="http://70.12.115.167:8000/miniproject/resources/images/back<%= rand %>.png" style="display:blcok" width="660px" height="810px">
 <img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none" width="660px" height="810px">
 <img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none" width="660px" height="810px">
 <img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none" width="660px" height="810px">
