@@ -95,6 +95,9 @@
 <script>
 var canvas, drop1, drop2;
 var imgInfo = new Array();
+var imgDom = new Array();
+var imgX = new Array();
+var imgY = new Array();
 
 function initiate(){
   var images;
@@ -138,10 +141,12 @@ function dropped(e){
   var posy=e.pageY-drop1.offsetTop;
   canvas.drawImage(elem,posx-593,posy-434);
   //캔버스에 이미지가 들어가게될 위치의 영점조절(-593,-434)및 해당 크기로 들어가 지게끔 설정.
-  
-  
-  imgInfo.push({imgDom:elem, imgX:posx-593, imgY:posy-434}); //착용정보의 이미지 태그가 담김
-  console.log(imgInfo);
+  imgDom.push(elem);
+  imgX.push(posx-593);
+  imgY.push(posy-434);
+
+ // imgInfo.push({imgDom:elem, imgX:posx-593, imgY:posy-434}); //착용정보의 이미지 태그가 담김
+  console.log(imgDom);
   
 }
 window.addEventListener('load', initiate, false);
@@ -153,8 +158,15 @@ function save() {
 function del() {
  	canvas.clearRect(0,0,drop1.width,drop1.height);
  	// (0,0)좌표 부터 (drop1.width,drop1.height)의 영역 만큼 제거
-}	
-	
+ 	
+	for(var i = 0; i <= imgDom.length; i++){
+		imgDom.pop();
+		imgX.pop();
+		imgY.pop();	
+ 		//imgInfo 에 담긴 객체를 전부 삭제
+	}
+}
+
 function loading() {
 	var img = new Image();
     img.src = localStorage.getItem("canvas");
@@ -164,12 +176,14 @@ function loading() {
 }
 
 function cancel() {
-	imgInfo.pop();
-
 	canvas.clearRect(0,0,drop1.width,drop1.height);// 먼저 화면 비우고
-	
-	for(int i = 1; i <= imgInfo.length; i++){
-		canvas.drawImage(imgInfo[i]);
+	//imgInfo.pop();
+
+	imgDom.pop();
+	imgX.pop();
+	imgY.pop();	
+	for(var i = 0; i <= imgDom.length; i++){
+		canvas.drawImage(imgDom[i],imgX[i],imgY[i]);
  		//imgInfo 에 담긴 객체를 가지고 순서대로 전부 drawImage
 	}
 }
