@@ -153,6 +153,21 @@ window.addEventListener('load', initiate, false);
 
 function save() {
     localStorage.setItem("canvas", drop1.toDataURL());
+ 
+   
+/*     
+	File f = new File("c:/uploadtest/multi/" + fileName);
+	//String fileInfo = context.getRealPath("/") + "resources/images/"+fileName;
+	//File f = new File(fileInfo);
+	if (f.exists()) {
+		resultStr += fileName + " : 파일이 이미 존재해요!!<br>";
+	} else {
+		mfile.transferTo(f);// 받아와서 바로 저장하는 기능이다. (받아와서 추가적으로 무엇인가 action을 취하지는 못한다.)
+		resultStr += fileName + " : 파일이 저장되었어요!!<br>";
+	}
+     */
+	
+    
 }
 	
 function del() {
