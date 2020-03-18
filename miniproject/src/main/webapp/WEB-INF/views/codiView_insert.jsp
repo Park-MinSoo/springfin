@@ -19,7 +19,6 @@
 			<input type="text" name="title" style="width: 330px;" placeholder="제목을 입력해주세요"><br>
 			<textarea id="content" rows="10" cols="45" name="content" placeholder="내용을 입력해주세요"></textarea>
 			<br>
-			
 			<input type="hidden" name="pgNum" value="${ requestScope.pgNum }">
 			<input type="submit" value="저장">
 			<input type="reset" value="재작성">

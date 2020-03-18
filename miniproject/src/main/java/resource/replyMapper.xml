@@ -16,9 +16,9 @@
 			insert into reply(re_id, re_writer,re_text,re_writedate,re_select)
 			values (#{re_id},#{re_writer},#{re_text},to_date(sysdate,'rrrr-mm-dd'),#{re_select})
 	</insert>
-	<update id="replyupdate" parameterType="vo.ReplyVO">
-		update reply sets
-		re_text=#{re_text}, re_writedate=to_date(sysdate,'rrrr-mm-dd')
+	<update id="replyupdate" parameterType="java.util.HashMap">
+		update reply 
+		set	re_text=#{re_text}, re_writedate=to_date(sysdate,'rrrr-mm-dd') 
 		where re_id=#{re_id}
 	</update>
 	<delete id="replydelete" parameterType="_int">

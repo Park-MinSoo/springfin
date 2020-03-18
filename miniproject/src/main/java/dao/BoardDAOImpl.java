@@ -1,9 +1,12 @@
 package dao;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +39,11 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public boolean update(BoardVO vo) {
+	public boolean update(BoardVO vo){
 		boolean result = false;
-		if(sql.update(name+".updateBoard",vo)==1)
+		if(sql.update(name+".updateBoard",vo)==1) {
 			result = true;
+		}
 		return result;
 	}
 
@@ -98,5 +102,18 @@ public class BoardDAOImpl implements BoardDAO {
 		}
 		return count;
 	}
-
+	
+	@Override
+	public void updatetup(BoardVO vo,HttpServletResponse response) throws IOException{
+		Map<String, Object> map = new HashMap<>();
+		map.put("tup",vo.getTup());
+		map.put("id",vo.getId());
+		int i = sql.update(name+".updatetup",map);
+		//System.out.println(id + "는 id");
+		//System.out.println(i+ "는 뭐다");
+		if(i==1)
+			response.getWriter().print("1");
+		else
+			response.getWriter().print("0");		
+	}
 }

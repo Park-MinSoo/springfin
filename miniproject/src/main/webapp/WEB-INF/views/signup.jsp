@@ -5,6 +5,58 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
+<style>
+body {
+	background-color: black;
+	background-size: 100%;
+}
+*{
+	text-align: center;
+}
+h2{
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+
+.bt{
+	border: 2px solid white;
+	color: white;
+	font-family: 'Lalezar';
+	font-size: 15px;
+	border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #1F1E1E;
+	padding: 5px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+ 	position: relative;
+  
+	
+
+}
+
+#btn-address{
+	border: 2px solid white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #1F1E1E;
+	padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55px;
+    height: 30px;
+    color: white; 
+
+}
+
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script language="javascript">
@@ -46,7 +98,7 @@ function passConfirm(){
 
 }
 function CheckId(){
-	//console.log(form.sm_id.value);
+	console.log(form.sm_id.value);
 	$.ajax({
 		type :"post",// 전송 방식 
 		url :"/miniproject/idcheck",  //컨트롤러 사용할 때. 내가 보낼 데이터의 주소. 
@@ -77,31 +129,32 @@ function check(){
 </script>
 </head>
 <body>
+<h2>Make your Account</h2>
 	<form method="post" action="/miniproject/signup" name="form" id="signup">
 		<table>
-		<tr><td>아이디  	</td><td><input type = "text" name="sm_id" id="sm_id" placeholder="아이디를 입력해주세요" required>
+		<tr><td> ID  	</td><td><input type = "text" name="sm_id" id="sm_id" placeholder="아이디를 입력해주세요" required>
 								<input type = "button" name="idcheck" onClick="CheckId(); return false;" value="중복확인"/></td></tr>
-		<tr><td>비밀번호  </td><td><input type = "password" name="sm_pwd" id="sm_pwd" placeholder="비밀번호를 입력해주세요" required></td></tr>
-		<tr><td>비밀번호 확인 </td><td>	<input type = "password" name="sm_pwd_check" id="sm_pwd_check" placeholder="비밀번호를 다시 입력해주세요" required onKeyup="passConfirm();">
+		<tr><td> PASSWORD	</td><td><input type = "password" name="sm_pwd" id="sm_pwd" placeholder="비밀번호를 입력해주세요" required></td></tr>
+		<tr><td> Check PASSWORD	</td><td>	<input type = "password" name="sm_pwd_check" id="sm_pwd_check" placeholder="비밀번호를 다시 입력해주세요" required onKeyup="passConfirm();">
 									<span id="confirmMsg"></span></td></tr>
-		<tr><td>닉네임  	</td><td><input type = "text" name="nic" id="nic" placeholder="닉네임을 입력해주세요"></td></tr>
-		<tr><td>이름  	</td><td><input type = "text" name="name" id="name" placeholder="이름을 입력해주세요" required></td></tr>
-		<tr><td>나이  	</td><td><input type = "number" name="age" id="age" max="999" min="1" placeholder="나이를 입력해주세요"></td></tr>
-		<tr><td>키  		</td><td><input type = "number" name="height" id="height" max="999" min="1" placeholder="키를 입력해주세요"></td></tr>
-		<tr><td>몸무게  	</td><td><input type = "number" name="weight" id="weight" max="999" min="1" placeholder="몸무게를 입력해주세요"></td></tr>
-		<tr><td>성별  	</td><td><input type="radio" id="male" name="gender" value="male">
+		<tr><td> Nickname		</td><td><input type = "text" name="nic" id="nic" placeholder="닉네임을 입력해주세요"></td></tr>
+		<tr><td> NAME	</td><td><input type = "text" name="name" id="name" placeholder="이름을 입력해주세요" required></td></tr>
+		<tr><td> AGE	</td><td><input type = "number" name="age" id="age" max="999" min="1" placeholder="나이를 입력해주세요"></td></tr>
+		<tr><td> HEIGHT	</td><td><input type = "number" name="height" id="height" max="999" min="1" placeholder="키를 입력해주세요"></td></tr>
+		<tr><td> WEIGHT	</td><td><input type = "number" name="weight" id="weight" max="999" min="1" placeholder="몸무게를 입력해주세요"></td></tr>
+		<tr><td> GENDER  	</td><td><input type="radio" id="male" name="gender" value="male">
 									<label for="male">Male</label>
 									<input type="radio" id="female" name="gender" value="female">
 									<label for="female">Female</label><br/></td></tr>
-		<tr><td>주소  	</td><td><input type="text"  style="width:500px;" id="address"  name="address" />
-								<input type="button" onClick="goPopup();" value="주소입력"/></td></tr>
+		<tr><td> ADDRESS		</td><td><input type="text"  style="width:500px;" id="address"  name="address" />
+								<input type="button" id="btn-address" onClick="goPopup();" value="주소입력"/></td></tr>
 		</table>
 				<br>
 				<br>
 			
-		<input type = "button" onclick="check();" value = "확인">
-		<input type = "reset" value = "재작성">
-		<button onclick="location.href='/miniproject/main'; return false;">취소</button>
+		<input type = "button" onclick="check();" value = "submit" class="bt">
+		<input type = "reset" value = "reset" class="bt">
+		<button onclick="${ requestScope.referer }" class="bt">cancel</button>
 	</form>
 </body>
 </html>

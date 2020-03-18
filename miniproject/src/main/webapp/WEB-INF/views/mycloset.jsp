@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ page import = "vo.ClothesVO, java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Style Manager</title>
-  	<link href="https://fonts.googleapis.com/css?family=Poor Story:400" rel="stylesheet">
+  <title>What In My Closet</title>
+  	
     <link rel="stylesheet" href="http://70.12.115.167:8000/miniproject/resources/hover.css">  
 <style>
+	body{
+		background-color: black;
+	}
+	
 	h1{
-		font-family : Poor Story;
-		font-size : 65px;
+		
 		text-align : center;
-  		text-shadow : 10px 10px 15px black;
   		color : #fff;
   	}
   	label{
@@ -27,7 +28,7 @@
   		text-align : center;
   	}
   	html{
-  		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/back33.png);
+  		
   		background-repeat : no-repeat;
    		background-position : center;
 		background-size : cover;
@@ -37,15 +38,15 @@
 		z-index:1000;
 		left : 580px;
 		width : 650px;
-		height : 800px;
+		height : 500px;
 	}
 	#defaultCloset {
 		position : absolute;
-		left : 5px;
-		top : 450px;
+		left : 50px;
+		top : 300px;
 		width : 550px;
-		height : 800px;
-		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/closet.png);
+		height : 500px;
+		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/closet21.png);
   		background-repeat : no-repeat;
   		z-index: -1000;
   		
@@ -54,35 +55,35 @@
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 520px;
 		overflow:scroll;
 	}
 	#picturesbox2 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 520px;
 		overflow:scroll;
 	}
 	#picturesbox3 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 520px;
 		overflow:scroll;
 	}
 	#picturesbox4 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 520px;
 		overflow:scroll;
 	}
 	#picturesbox5 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 520px;
 		overflow:scroll;
 	}
 	#weather{
@@ -92,6 +93,250 @@
 		left : 580px;
 		opacity : 0.9;
 	}
+	
+	
+	.btn_wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    width: 800px;
+    height: 35px;
+    background-color: black;
+    border-radius: 40px;
+    padding: 0 18px;
+    will-change: transform;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn_wrap:hover {
+    /* transition-delay: .4s; */
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1)
+}
+
+#boxing {
+    position: absolute;
+    z-index: 99;
+    width: 810px;
+    height: 40px;
+    border-radius: 40px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 2px;
+    color: #EEEEED;
+    background-color: #1F1E1E;
+    padding: 0 18px;
+    -webkit-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+    
+}
+
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 820px;
+    height: 48px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+
+.btn_wrap:hover span {
+    -webkit-transition-delay: .25s;
+            transition-delay: .25s;
+    -webkit-transform: translateX(-800px);
+            transform: translateX(-800px)
+}
+
+.btn_wrap:hover i {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+	
+	
+	
+	.btn_wrap1 {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    width: 800px;
+    height: 35px;
+    background-color: black;
+    border-radius: 40px;
+    padding: 0 18px;
+    will-change: transform;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn_wrap1:hover {
+    /* transition-delay: .4s; */
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1)
+}
+
+#boxing1 {
+    position: absolute;
+    z-index: 99;
+    width: 810px;
+    height: 40px;
+    border-radius: 40px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 2px;
+    color: #EEEEED;
+    background-color: #1F1E1E;
+    padding: 0 18px;
+    -webkit-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+    
+}
+
+.container1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 820px;
+    height: 48px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+
+.btn_wrap1:hover span {
+    -webkit-transition-delay: .25s;
+            transition-delay: .25s;
+    -webkit-transform: translateX(-800px);
+            transform: translateX(-800px)
+}
+
+.btn_wrap1:hover i {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+
+
+
+.btn_wrap2 {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    width: 800px;
+    height: 35px;
+    background-color: black;
+    border-radius: 40px;
+    padding: 0 18px;
+    will-change: transform;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn_wrap2:hover {
+    /* transition-delay: .4s; */
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1)
+}
+
+#boxing2 {
+    position: absolute;
+    z-index: 99;
+    width: 810px;
+    height: 40px;
+    border-radius: 40px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 2px;
+    color: #EEEEED;
+    background-color: #1F1E1E;
+    padding: 0 18px;
+    -webkit-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+    
+}
+
+.container2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 820px;
+    height: 48px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+
+.btn_wrap2:hover span {
+    -webkit-transition-delay: .25s;
+            transition-delay: .25s;
+    -webkit-transform: translateX(-800px);
+            transform: translateX(-800px)
+}
+
+.btn_wrap2:hover i {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+
+
+
+
+	
 </style>
 <script>
 var canvas, drop1, drop2;
@@ -154,7 +399,6 @@ window.addEventListener('load', initiate, false);
 
 function save() {
     localStorage.setItem("canvas", drop1.toDataURL());
- 
 }
 	
 function del() {
@@ -276,44 +520,56 @@ function displayClothes(type) {
 
 </script>
 <body>
-<%
-	ArrayList<ClothesVO> list = (ArrayList<ClothesVO>)request.getAttribute("list");
-%>
 <br>
-<h1><img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "120px">Style Manager<img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "120px"></h1>
+<h1>What In My Closet</h1>
 <div>
 
   <!-- 코디 저장 및 불러오기 fuction -->
 <p>
-    <button onclick="save();">코디 저장하기</button>
-    <button onclick="loading();">코디 읽어오기</button>
-    <button onclick="del();">코디 지우기</button>
-    <button onclick="cancel();">직전 코디 취소하기</button>
+<div class="btn_wrap" >
+	<span id="boxing" >Make MY LOOKBOOK</span>
+		<div class="container">
+    		<button onclick="save();">Save your Look</button>
+    		<button onclick="loading();">Load your Look</button>
+    		<button onclick="del();">Initialize your Look</button>
+    		<button onclick="cancel();">Get back to Look you just made</button>
+    	</div>
+</div>
 </p>
 
   <!-- 옷장 탭구분 등록 fuction -->
 <p>
-    <button onclick="displayClothes(1);">상의</button>
-    <button onclick="displayClothes(2);">하의</button>
-    <button onclick="displayClothes(3);">신발</button>
-    <button onclick="displayClothes(4);">기타</button>
-    <button onclick="displayClothes(5);">SM's 추천 코디</button>
-    <button onclick="displayClothes(6);">옷장 문 닫기</button>
+<div class="btn_wrap1" >
+	<span id="boxing1" >MY CLOSET TOUR</span>
+		<div class="container1">
+    		<button onclick="displayClothes(1);">Tops</button>
+   		 	<button onclick="displayClothes(2);">Bottoms</button>
+    		<button onclick="displayClothes(3);">Shoes</button>
+    		<button onclick="displayClothes(4);">Bags & Hats</button>
+   			<button onclick="displayClothes(5);">SM STYLING TIPS</button>
+    		<button onclick="displayClothes(6);">CLOSE MY CLOSET</button>
+       </div>
+</div>
   </p>
   
   <!-- 계절 BG 등록 fuction -->
   <p> 
-    <button onclick="displayWeather(1);">봄</button>
-    <button onclick="displayWeather(2);">여름</button>
-    <button onclick="displayWeather(3);">가을</button>
-    <button onclick="displayWeather(4);">겨울</button>
-    <button onclick="displayWeather(5);">배경 없음</button>
+  <div class="btn_wrap2" >
+	<span id="boxing2" >TIME, PLACE, OCCASION</span>
+		<div class="container2">
+    		<button onclick="displayWeather(1);">Spring</button>
+    		<button onclick="displayWeather(2);">Summer</button>
+    		<button onclick="displayWeather(3);">Fall</button>
+    		<button onclick="displayWeather(4);">Winter</button>
+    		<button onclick="displayWeather(5);">None</button>
+    	</div>
+  </div>
    </p>
    </div>
 	<br>
   <!-- 캔버스 영역 설정  -->
   <section id="dropbox">
-    <canvas id="canvas" width="650" height="1500"></canvas>
+    <canvas id="canvas" width="650" height="734"></canvas>
   </section>
    
    <!-- 상의 아이템 -->
@@ -321,9 +577,8 @@ function displayClothes(type) {
  
   	<!-- 여성 상의 -->
   	<br>
-  	<label>◎ 여성 ◎</label>
+  	<label>◎ WOMEN ◎</label>
   	<br>
-     <%-- <img id="<%= vo.getCl_pid() %>" src=<%= vo.getCl_uri() %> height="125px">  --%> 
     <img id="wt001" src="http://70.12.115.167:8000/miniproject/resources/images/wt001.png" height="125px">
     <img id="wt002" src="http://70.12.115.167:8000/miniproject/resources/images/wt002.png" height="125px">
     <img id="wt003" src="http://70.12.115.167:8000/miniproject/resources/images/wt003.png" height="125px">
@@ -358,7 +613,7 @@ function displayClothes(type) {
     
     <!-- 남성 상의 -->
     <br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
     <img id="mt001" src="http://70.12.115.167:8000/miniproject/resources/images/mt001.png" height="125px">
     <img id="mt002" src="http://70.12.115.167:8000/miniproject/resources/images/mt002.png" height="125px">
@@ -536,7 +791,6 @@ function displayClothes(type) {
  <!-- 착용샷 변환용 -->
  <section id="picturesbox6" style="display:none">
  <!-- 여성 상의 --> 
-
     <img id="fwt001" src="http://70.12.115.167:8000/miniproject/resources/images/fwt001.png" height="400px">
     <img id="fwt002" src="http://70.12.115.167:8000/miniproject/resources/images/fwt002.png" height="400px">
     <img id="fwt003" src="http://70.12.115.167:8000/miniproject/resources/images/fwt003.png" height="400px">
@@ -682,7 +936,6 @@ function displayClothes(type) {
  </section> 
  
  <section id=defaultCloset>
-	<br>
  </section>
 
 	<% 
@@ -691,11 +944,11 @@ function displayClothes(type) {
 
 <section id = "weather">
 <br>
-<img id="backimg" src="http://70.12.115.167:8000/miniproject/resources/images/back<%= rand %>.png" style="display:blcok" width="660px" height="810px">
-<img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none" width="660px" height="810px">
-<img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none" width="660px" height="810px">
-<img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none" width="660px" height="810px">
-<img id="winter" src="http://70.12.115.167:8000/miniproject/resources/images/winter.png" style="display:none" width="660px" height="810px">
+<img id="backimg" src="http://70.12.115.167:8000/miniproject/resources/images/back<%= rand %>.png" style="display:blcok" width="660px" height="510px">
+<img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none" width="660px" height="510px">
+<img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none" width="660px" height="510px">
+<img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none" width="660px" height="510px">
+<img id="winter" src="http://70.12.115.167:8000/miniproject/resources/images/winter.png" style="display:none" width="660px" height="510px">
 </section>
 </body>
 </html>

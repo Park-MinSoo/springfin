@@ -36,11 +36,13 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public boolean re_update(ReplyVO vo) {
-		boolean result = false;
-		if(dao.re_update(vo))
-			result = true;
-		return result;
+	public void re_update(ReplyVO vo,HttpServletResponse response) throws IOException{
+		
+		if(dao.re_update(vo)) {
+			response.getWriter().print("1");
+		}else {
+			response.getWriter().print("0");
+		}
 	}
 
 	@Override

@@ -1,8 +1,11 @@
 package my.spring.miniproject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import dao.BoardDAO;
@@ -97,6 +101,12 @@ public class BoardController {
 		mav.addObject("pgNum",pgNum);
 		mav.addObject("list",list);
 		return mav;
+	}
+	
+	@RequestMapping(value="/tup", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public void tup(BoardVO vo,HttpServletResponse response) throws ServletException, IOException{
+		dao.updatetup(vo,response);
 	}
 	
 	@RequestMapping(value="/board/{type}/{action}", method=RequestMethod.POST)

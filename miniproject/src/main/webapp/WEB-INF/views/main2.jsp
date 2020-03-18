@@ -213,7 +213,7 @@ body {
       <h2 class="title">WIMC</h2>
       <p class="copy">What In My Closet? 
       Make your LOOKBOOK !</p>
-      <button class="btn" onclick="location.href='/miniproject/board/mycloset' ">Go My Closet</button>
+      <button class="btn" onclick="location.href='http://70.12.115.162:8000/miniproject/wimc'; ">Go My Closet</button>
     </div>
   </div>
   <div class="card">

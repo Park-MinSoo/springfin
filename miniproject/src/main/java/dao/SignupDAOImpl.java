@@ -18,7 +18,7 @@ public class SignupDAOImpl implements SignupDAO {
 	 
 	 @Override
 	 public int idCheck(String sm_id) {
-		 System.out.println("여기는 dao");
+		 //System.out.println("여기는 dao");
 		 return sql.selectOne("resource.memberMapper.idCheck",sm_id);
 	 }
 
