@@ -3,6 +3,8 @@ package my.spring.miniproject;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dao.BoardDAO;
 import service.PagingService;
+import service.ReplyService;
 import vo.BoardVO;
+import vo.ReplyVO;
 
 @Controller
 public class BoardController {
@@ -25,13 +29,15 @@ public class BoardController {
 	PagingService pc;
 	//get : list, search, delete, writer
 	//post : insert, update
+	@Autowired
+	ReplyService rs;
 	
 	@RequestMapping(value="/board/{type}", method=RequestMethod.GET)
 	public ModelAndView boardList(@PathVariable String type, @RequestParam(defaultValue="1")int pgNum) {
 		ModelAndView mav = new ModelAndView();
 		int startNum = pc.getWritingStart(pgNum);
 		int endNum = pc.getWritingEnd(pgNum);
-		System.out.println(startNum + ", "+endNum);
+		//System.out.println(startNum + ", "+endNum);
 		List<BoardVO> list = dao.listAll(type,startNum,endNum);
 		mav.addObject("pageStart",pc.getPageStart(pgNum));
 		mav.addObject("pageEnd",pc.getPageEnd(pgNum,type));
@@ -47,12 +53,13 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/{type}/{action}", method=RequestMethod.GET)
 	public ModelAndView boardGET(@PathVariable String type,
-								@PathVariable String action, BoardVO vo, String keyword, String searchType,@RequestParam(defaultValue="1")int pgNum) {
+								@PathVariable String action, ReplyVO rvo, BoardVO vo, String keyword
+								, String searchType,@RequestParam(defaultValue="1")int pgNum) {
 		ModelAndView mav = new ModelAndView();
 		int startNum = pc.getWritingStart(pgNum);
 		int endNum = pc.getWritingEnd(pgNum);
 		List<BoardVO> list = dao.listAll(type,startNum,endNum);
-		
+		List<ReplyVO> re_list = rs.re_list(vo.getId());
 		if(keyword==null&&searchType==null) {
 			if(action.equals("delete")) {
 				dao.delete(vo.getId());
@@ -64,6 +71,7 @@ public class BoardController {
 			}else if(action.equals("read")){
 				vo = dao.listOne(vo.getId());
 				list = dao.listAll(type,startNum,endNum);
+				mav.addObject("re_list",re_list);
 				mav.setViewName(type+"View_update");
 				mav.addObject("listOne",vo);
 			}else if(action.equals("write")) {
@@ -93,15 +101,15 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/{type}/{action}", method=RequestMethod.POST)
 	public ModelAndView boardPOST(@PathVariable String type,
-								@PathVariable String action, BoardVO vo,@RequestParam(defaultValue="1")int pgNum) {
+								@PathVariable String action, BoardVO vo, @RequestParam(defaultValue="1")int pgNum,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		int startNum = pc.getWritingStart(pgNum);
 		int endNum = pc.getWritingEnd(pgNum);
 		List<BoardVO> list = new ArrayList<>();
 		if(action!=null) {
 			if(action.equals("insert")) {
+				vo.setWriter((String)session.getAttribute("sm_id"));
 				if(dao.insert(vo)) {
-					System.out.println(vo.getLocation());
 					list = dao.listAll(type,startNum,endNum);				
 				}
 			}else if(action.equals("update")) {

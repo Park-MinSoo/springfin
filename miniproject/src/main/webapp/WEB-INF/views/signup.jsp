@@ -46,7 +46,7 @@ function passConfirm(){
 
 }
 function CheckId(){
-	console.log(form.sm_id.value);
+	//console.log(form.sm_id.value);
 	$.ajax({
 		type :"post",// 전송 방식 
 		url :"/miniproject/idcheck",  //컨트롤러 사용할 때. 내가 보낼 데이터의 주소. 
@@ -70,6 +70,10 @@ function CheckId(){
 	});
 } 
 
+function check(){
+	alert("회원가입을 축하합니다.");
+	document.getElementById("signup").submit();	
+}
 </script>
 </head>
 <body>
@@ -95,9 +99,9 @@ function CheckId(){
 				<br>
 				<br>
 			
-		<input type = "submit" value = "확인">
+		<input type = "button" onclick="check();" value = "확인">
 		<input type = "reset" value = "재작성">
-		<button onclick="${ requestScope.referer }">취소</button>
+		<button onclick="location.href='/miniproject/main'; return false;">취소</button>
 	</form>
 </body>
 </html>

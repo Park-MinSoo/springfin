@@ -22,7 +22,7 @@ public class SignupSerivceImpl implements SignupService {
 	
 	@Override
     public void idCheck(String sm_id, HttpServletResponse response) throws IOException{
-		System.out.println("여기는 service");
+		//System.out.println("여기는 service");
 		int num = dao.idCheck(sm_id);
 		
 		if(num==0) {

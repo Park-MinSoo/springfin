@@ -62,7 +62,7 @@
 				<div id="content" name="content"><%=listOne.getContent()%></div>
 			</c:if>
 			
-			추천 수 :<input name="tup" id="likes" value="${ listOne.tup }" readonly>
+			추천 수 :<span id="tup" name="tup">${ listOne.tup }</span>
 			<button onclick="like(); return false;">추천</button>
 			<br>
 			<button onclick="${ requestScope.referer }" id="btn-referer">확인</button>
@@ -89,6 +89,7 @@
 					<%=rvo.getRe_writer() %>
 					<br>
 					<%=rvo.getRe_text() %>
+					<button id="re_update" onclick="location.href='/miniproject/reply/update'; return false;">수정</button>
 				</li>
 			<%
 					}
@@ -113,29 +114,7 @@ function updateSubmit(){
 //추천수 기능
 function like(){
 	//localstorage 통해서 tup 변수 늘리기
-	$.ajax({
-		type :"post",// 전송 방식 
-		url :"/miniproject/reply/insert",  //컨트롤러 사용할 때. 내가 보낼 데이터의 주소. 
-		data : {"re_writer" : replyform.re_writer.value,
-				"re_text" : replyform.re_text.value,
-				"re_select" : replyform.re_select.value},
-		
-		// JSON형식 안에 JSON 형식으로 표현한 데이터. 
-        //"파라미터 이름" : 폼태그에 적은 NAME 값.ID입력창의 NAME값.value 여러 개도 가능				
-		
-		dataType : "json",	// text, xml, html, script, json, jsonp 가능 
-        //정상적인 통신을 했다면 function은 백엔드 단에서 데이터를 처리.
-		success : function(data){	
-			if(data=="1"){
-				alert("댓글이 추가됨");
-			}else{
-				alert("댓글 실패");
-			}
-		},
-		error : function(){
-			alert("ajax 실행 실패");
-		}
-	});
+	
 }
 function add(){
 	$.ajax({

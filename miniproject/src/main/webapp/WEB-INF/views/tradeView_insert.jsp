@@ -19,10 +19,9 @@
 		<form method="post" action="/miniproject/board/trade/insert">
 			<select name="type" id="type">
 				<option value="trade" id="trade">거래게시판</option>
-				<option value="trade" id="trade">코디게시판</option>
-				<option value="official" id="official">공지게시판</option>
+				<option value="codi" id="codi">코디게시판</option>
 			</select>
-			<input type="text" name="writer" style="width: 330px;" placeholder="이름을 입력해주세요"><br>
+			<%= session.getAttribute("sm_id") %><br>
 			<input type="text" name="title" style="width: 330px;" placeholder="제목을 입력해주세요"><br>
 			<textarea id="content" rows="10" cols="45" name="content" placeholder="내용을 입력해주세요"></textarea>
 			<br>

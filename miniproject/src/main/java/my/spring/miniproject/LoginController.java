@@ -20,25 +20,32 @@ public class LoginController {
 	@Autowired
 	LoginService ms;
 	
-	@RequestMapping("login")
+	@RequestMapping(value="/main")
+	public String main(@ModelAttribute MemberVO vo, HttpSession session) {
+	
+		return "main";
+	}
+	
+	@RequestMapping(value="/menu")
 	public ModelAndView loginCheck(@ModelAttribute MemberVO vo, HttpSession session) {
-		boolean result = ms.loginCheck(vo, session);
 		ModelAndView mav = new ModelAndView();
-		if(result) {
-			mav.setViewName("main");
+		mav.setViewName("main");
+		if(ms.loginCheck(vo, session)) {
+			session.setAttribute("User", vo);
 			mav.addObject("msg","success");
+			mav.setViewName("main2");
 		}else {
-			mav.setViewName("login");
 			mav.addObject("msg","fail");
+			mav.setViewName("main");
 		}
 		return mav;
 	}
 	
-	@RequestMapping("logout")
+	@RequestMapping(value="/logout")
 	public ModelAndView logout(HttpSession session) {
 		ms.logout(session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("login");
+		mav.setViewName("main");
 		mav.addObject("msg","logout");
 		return mav;
 	}

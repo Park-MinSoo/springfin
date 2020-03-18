@@ -27,6 +27,7 @@ public class LoginServiceImpl implements LoginService {
 	public MemberVO viewMember(MemberVO vo) {
 		return dao.viewMember(vo);
 	}
+	
 
 	@Override
 	public void logout(HttpSession session) {
