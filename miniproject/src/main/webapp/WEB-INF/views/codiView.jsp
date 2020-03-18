@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="vo.BoardVO,java.util.List" %>
-
+<%@ page import="vo.BoardVO,java.util.List,service.PagingService" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판</title>
 <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo|Permanent+Marker&display=swap" rel="stylesheet">
 <style>
 	body{
@@ -61,8 +61,8 @@
 	width: 150px;
 	}
 
-	td:nth-child(3) {
-	width: 100px;
+	td:nth-child(4) {
+	width: 200px;
 	}
 
 	form {
@@ -95,10 +95,20 @@
 	<br>
 	<%
 		List<BoardVO> list = (List<BoardVO>) request.getAttribute("list");
-		BoardVO listone = (BoardVO) request.getAttribute("listone");
-		System.out.println("제발" + listone);
+		BoardVO listOne = (BoardVO) request.getAttribute("listOne");
+		int pageStart = (int) request.getAttribute("pageStart");
+		int pageEnd = (int) request.getAttribute("pageEnd");
+		boolean preData = (boolean) request.getAttribute("preData");
+		boolean nextData = (boolean) request.getAttribute("nextData");
+		//System.out.println("제발" + preData);
+		//System.out.println("제발" + nextData);
+
 		if (list != null) {
+			//System.out.println("list가 왔는가");
+
 	%>
+		
+	
 	<div class="Codi">
 		<table>
 			<tr>
@@ -107,16 +117,18 @@
 				<th>Writer</th>
 				<th>Date</th>
 				<th>Views</th>
+				<th>Likes</th>
 			</tr>
 			<%
 				for (BoardVO vo : list) {
 			%>
 			<tr>
 				<td><%=vo.getId()%></td>
-				<td><a href="/miniproject/codi?action=read&id=<%=vo.getId()%>"><%=vo.getTitle()%></a></td>
-				<td><a href="/miniproject/codi?action=writer&writer=<%=vo.getWriter()%>"><%=vo.getWriter()%></a></td>
+				<td><a href="/miniproject/board/codi/read?id=<%=vo.getId()%>&pgNum=${requestScope.pgNum}"><%=vo.getTitle()%></a></td>
+				<td><a href="/miniproject/board/codi/writer?writer=<%=vo.getWriter()%>&pgNum=${requestScope.pgNum}"><%=vo.getWriter()%></a></td>
 				<td><%=vo.getWritedate()%></td>
 				<td><%=vo.getCnt()%></td>
+				<td><%=vo.getTup()%></td>
 			</tr>
 
 			<%
@@ -125,38 +137,43 @@
 			%>
 		</table>
 	</div>
-	<button onclick="displayDiv(1);" id="btn2">글 작성</button>
+
+	<a href="/miniproject/board/codi?pgNum=${pageStart}">&laquo;</a>
+	
+	<c:if test = "<%= preData %>">
+		<a href="/miniproject/board/codi?pgNum=${requestScope.pgNum-1}">이전</a>
+	</c:if>
+	
+	<c:forEach var="i" begin="${pageStart}" end="${pageEnd}">
+		<a style="${i == requestScope.pgNum? 'color:red;' : 'color : black;'}"
+	       href = "/miniproject/board/codi?pgNum=${i}">${i} &nbsp;</a>
+	</c:forEach>
+	
+	<c:if test="<%= nextData %>">
+		<a href="/miniproject/board/codi?pgNum=${requestScope.pgNum+1}">다음</a>
+	</c:if>
+
+	<a href="/miniproject/board/codi?pgNum=${pageEnd}">&raquo;</a>
+
+	<br/>
+	<br/>
+	
+	<button onclick="location.href='/miniproject/board/codi/write?pgNum=${requestScope.pgNum}';" id="btn2">글 작성</button>
 	<hr>
-	<form method="get" action="/miniproject/codi">	
+	<form method="get" action="/miniproject/board/codi/search" id="search">	
 		<select name="searchType">
 			<option value="title" >제목</option>
 			<option value="writer">작성자</option>
 		</select>
 		<input type="search" name="keyword">
-		<input type="hidden" name="action" value="search">
-		<button onclick="location.href='/miniproject/codi'" id="btn2">검색</button>
+		<input type="hidden" name="pgNum" value="${	requestScope.pgNum }">
+		<button onclick="document.getElementById('search').submit();" id="btn2">검색</button>
 	</form>
 	<%
-		if (listone != null) {
-			System.out.println("리스트 원값 출력 확인 : "+listone);
+		if (listOne != null) {
+			//System.out.println("리스트 원값 출력 확인 : "+listOne);
 	%>
-	<div id="read">
-		<h3>게시글 내용</h3>
-		<form method="post" action="/miniproject/codi">
-			<input type="hidden" name="id" value="<%=listone.getId()%>">
-			<textarea rows="1" cols="30" id="writer" name="writer"><%=listone.getWriter()%></textarea>
-			<br>
-			<textarea rows="1" cols="30" id="title" name="title"><%=listone.getTitle()%></textarea>
-			<br>
-			<textarea rows="10" cols="30" id="content" name="content"><%=listone.getContent()%></textarea>
-			<br>
-			<button onclick="displayDiv(3); return false;" id="btn2">확인</button>
-			<input type="hidden" name="action" value="update">			
-			<input type="submit" id="btn2" value="수정" >
-			<button
-				onclick="location.href='/miniproject/codi?action=delete&id=<%=listone.getId()%>'; return false;" id="btn2">삭제</button>
-		</form>
-	</div>
+	
 	<%
 		}
 		
@@ -170,35 +187,5 @@
 		}
 	%>
 
-	<script>
-		function displayDiv(type) {
-			if (type == 1) {
-				document.getElementById("write").style.display = 'block';
-				document.getElementById("read").style.display = 'none';
-			} else if (type == 2){
-				document.getElementById("read").style.display = 'block';
-				document.getElementById("write").style.display = 'none';
-			}else{
-				document.getElementById("read").style.display = 'none';
-				document.getElementById("write").style.display = 'none';
-			}
-		}
-	</script>
-	<div id="write" style="display: none">
-		<h2 id="divT"></h2>
-		<form method="post" action="/miniproject/codi">
-			<input type="hidden" name="action" value="insert">
-			 <input	type="text" name="writer" style="width: 330px;" placeholder="이름을 입력해주세요"><br>
-			 <input type="text" name="title" style="width: 330px;" placeholder="제목을 입력해주세요"><br>
-			<textarea id="content" rows="10" cols="45" name="content" placeholder="내용을 입력해주세요"></textarea>
-			<br>
-			 <input type="submit" value="저장">
-			 <input	type="reset" value="재작성">
-			 <button onclick="displayDiv(3); return false;">취소</button>
-		</form>
-	</div>
-
 </body>
 </html>
-
-

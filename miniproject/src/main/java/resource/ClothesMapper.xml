@@ -4,6 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="resource.ClothesMapper">
 	<select id="selectUri" resultType="vo.ClothesVO">
-		select cl_pid, cl_type, cl_color, cl_tpo, cl_fabric, cl_uri from clothes <!-- where cl_pid=#{cl_pid} order by cl_pid desc -->
-	</select>
+		select cl_pid, cl_type, cl_color, cl_tpo, cl_fabric, cl_uri from clothes
+	</select>	
 </mapper>
