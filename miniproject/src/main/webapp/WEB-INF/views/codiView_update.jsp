@@ -42,7 +42,6 @@
 			<button onclick="${ requestScope.referer }" id="btn-referer">확인</button>
 			<c:if test='<%= session.getAttribute("sm_id").equals(listOne.getWriter()) %>'>
 				<button id="update" onclick="document.getElementById('update').submit();">수정</button>
-				<!-- <button id="update1" onclick="fin(); return false;">수정완료</button> -->
 				<button
 					onclick="location.href='/miniproject/board/codi/delete?id=<%=listOne.getId()%>&pgNum=${ requestScope.pgNum }'; return false;"
 					id="btn-delete">삭제</button>
@@ -50,46 +49,96 @@
 		</form>
 	</div>
 		<form method="post" name="replyform" id="replyform">
-		<input type="hidden" name="re_select" id="re_select" value="${ listOne.id }">
-		<label for="re_writer">작성자</label>
-		<input type="text" id="re_writer" name="re_writer" readonly value = "<%= session.getAttribute("sm_id") %>">
-		<label for="re_text">댓글</label>
-		<input type="text" id="re_text" name="re_text" >
-		<button id="addButton" onclick="add(); return false;">추가</button>
-		<ul id="replyList">
-		
-			<%	if(re_list!=null){
-					for(ReplyVO rvo:re_list){
-			%>
-				<li>
-					<input type="hidden" name="re_id" value="${ rvo.re_id }" id="re_id">
-					<% System.out.println(rvo.getRe_id()); %>
-					<%= rvo.getRe_writer() %>
-					<br>
-					<c:if test='<%= session.getAttribute("sm_id").equals(rvo.getRe_writer()) %>'>
-						<input id="new_text" value="<%= rvo.getRe_text() %>">
-					</c:if>
-					<c:if test='<%= !session.getAttribute("sm_id").equals(rvo.getRe_writer()) %>'>
-						<input value="<%= rvo.getRe_text() %>" readonly>
-					</c:if>
-					<c:if test='<%= session.getAttribute("sm_id").equals(rvo.getRe_writer()) %>'>
-						<button id="re_update" onclick="up(); return false;">수정</button>
-					</c:if>
-				</li>
-			<%
-					}
-				}
-			%>
+			<input type="hidden" name="re_select" id="re_select" value="${ listOne.id }">
+			<label for="re_writer">작성자</label>
+			<input type="text" id="re_writer" name="re_writer" readonly value = "<%= session.getAttribute("sm_id") %>">
+			<label for="re_text">댓글</label>
+			<input type="text" id="re_text" name="re_text" >
+			<button id="addButton" onclick="add(); return false;">추가</button>
 			
-		</ul>
+			<ul id="replyList">
+			
+				<%	if(re_list!=null){
+						for(ReplyVO rvo:re_list){
+				%>
+					<li>
+						<input type="hidden" name="re_id" value="<%=rvo.getRe_id() %>" id="re_id">
+						
+						<% System.out.println(rvo.getRe_id()); %>
+						<%= rvo.getRe_writer() %>
+						<br>
+						<c:if test='<%= session.getAttribute("sm_id").equals(rvo.getRe_writer()) %>'>
+							<script>
+								
+							console.log('1');
+							console.log('<%= rvo.getRe_text() %>');
+							</script>
+							<input type="text" name="newtext" id="newtext" value="<%=rvo.getRe_text()%>">
+							<script>
+							console.log('2');	
+							console.log('<%= rvo.getRe_text() %>');	
+							</script>
+						</c:if>
+						<c:if test='<%= !session.getAttribute("sm_id").equals(rvo.getRe_writer()) %>'>
+							<input value="<%= rvo.getRe_text() %>" readonly>
+						</c:if>
+						<c:if test='<%= session.getAttribute("sm_id").equals(rvo.getRe_writer()) %>'>
+						
+							<button id="re_update" onclick="up(<%=rvo.getRe_id() %>); return false;">수정</button>
+							<button id="re_delete" onclick="down(<%=rvo.getRe_id() %>); return false;">삭제</button>
+						</c:if>
+					</li>
+				<%}}%>			
+			</ul>
 		</form>
-			
-		
-		
-		
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
+function up(id){
+	console.log("0000");
+	console.log(replyform);
+	console.log(replyform.newtext);
+	console.log(replyform.newtext.value);
+	console.log(id);
+	$.ajax({
+		type :"post",// 전송 방식 
+		url :"/miniproject/reply/update",  //컨트롤러 사용할 때. 내가 보낼 데이터의 주소. 
+		data : {"re_text" : replyform.newtext.value,
+				"re_id" : id},
+				
+		dataType : "json",	
+		success : function(data){	
+			if(data=="1"){
+				alert("댓글이 수정됨");
+			}else{
+				alert("수정 실패");
+			}
+		},
+		error : function(){
+			alert("ajax 실행 실패");
+		}
+	});
+}
+function down(id){
+	console.log(id);
+	$.ajax({
+		type :"get",// 전송 방식 
+		url :"/miniproject/reply/delete",  //컨트롤러 사용할 때. 내가 보낼 데이터의 주소. 
+		data : {"re_id" : id},
+				
+		dataType : "json",	
+		success : function(data){	
+			if(data=="1"){
+				alert("댓글이 삭제됨");
+			}else{
+				alert("삭제 실패");
+			}
+		},
+		error : function(){
+			alert("ajax 실행 실패");
+		}
+	});
+}
 function like(){
 	$.ajax({
 		type :"post",
@@ -110,28 +159,7 @@ function like(){
 		}
 	});
 }
-function up(){
-	console.log(replyform.new_text.value);
-	console.log(replyform.re_id.value);
-	$.ajax({
-		type :"post",// 전송 방식 
-		url :"/miniproject/reply/update",  //컨트롤러 사용할 때. 내가 보낼 데이터의 주소. 
-		data : {"re_text" : replyform.new_text.value,
-				"re_id" : replyform.re_id.value},
-				
-		dataType : "json",	
-		success : function(data){	
-			if(data=="1"){
-				alert("댓글이 수정됨");
-			}else{
-				alert("수정 실패");
-			}
-		},
-		error : function(){
-			alert("ajax 실행 실패");
-		}
-	});
-}
+
 function add(){
 	$.ajax({
 		type :"post",// 전송 방식 

@@ -10,6 +10,74 @@
 <title>게시판</title>
 <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo|Permanent+Marker&display=swap" rel="stylesheet">
 <style>
+	.container{
+	    padding: 50px 100px;
+	    transition: .5s;
+	}
+	.container header{
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: auto;
+	    padding: 40px 50px;
+	    background: #e1e6ec;
+	    box-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+	}
+	.container header nav{
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+	}
+	.container header nav .logo .logo-name{
+	    font-size: 3em;
+	    color: #000;
+	    text-transform: uppercase;
+	    font-family: ;
+	    font-weight: bold;
+	    padding: 0 0.25em;
+	}
+	
+	.container header nav .login ul{
+	    list-style-type: none;
+	}
+	
+	.container header nav .login ul li{
+	    display: inline;
+	    padding: 12px 18px;
+	    margin: 0 16px;
+	    font-size: 1.5rem;
+	    font-family: ;
+	    font-weight: 100;
+	    cursor: pointer;
+	}
+	.container header nav .login ul li{
+	    padding: 16px 22px;
+	    border-radius: 50px;
+	    background: #e1e6ec;
+	    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, .2),
+	                -3px -3px 10px 1px rgba(255, 255, 255, 1);
+	}
+	
+	.container header nav .login ul li:active{
+	    box-shadow: inset 3px 3px 10px 1px rgba(0, 0, 0, .2),
+	                inset -3px -3px 10px 1px rgba(255, 255, 255, 1);
+	}
+	.container.active{
+    filter: blur(20px);
+    transition: .5s;
+    pointer-events: none;
+	}
+	*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	}
+	#container {
+	grid-area: main;
+	align-self: left;
+	justify-self: left;
+	}
 	body{
 		background-color : white;
 		background-size : 100%;
@@ -90,7 +158,14 @@
 </style>
 </head>
 <body>
-
+	<div class="container">
+		<header>
+			<nav>
+			     <a class="logo" href="/miniproject/menu" style="text-decoration: none;">
+				 <span class="logo-name">STYLE COORDER</span></a>
+			</nav>
+		</header>
+	</div>
 	<h2>Coordination</h2>
 	<br>
 	<%
