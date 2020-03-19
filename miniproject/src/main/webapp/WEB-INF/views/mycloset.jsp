@@ -6,11 +6,7 @@
   <title>What In My Closet</title>
   	<link href="https://fonts.googleapis.com/css?family=Poor Story:400" rel="stylesheet">
     <link rel="stylesheet" href="http://70.12.115.167:8000/miniproject/resources/hover.css">  
-<style>
- 	body{
-		background-color: black;
-	} 
-	
+<style>	
 	h1{
 		
 		text-align : center;
@@ -28,10 +24,11 @@
   		text-align : center;
   	}
   	html{
-  		
+  		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/black0.png);
   		background-repeat : no-repeat;
    		background-position : center;
 		background-size : cover;
+		height : 280px;
   	}
 	#dropbox {
 		position : absolute;
@@ -42,11 +39,11 @@
 	}
 	#defaultCloset {
 		position : absolute;
-		left : 150px;
+		left : 70px;
 		top : 300px;
-		width : 220px;
+		width : 440px;
 		height : 500px;
-		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/closet21.png);
+		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/closet20.png);
   		background-repeat : no-repeat;
   		z-index: -1000;
   		border-radius : 20px;
@@ -149,7 +146,7 @@ function dropped(e){
   imgX.push(posx-593);
   imgY.push(posy-304);
 
- // imgInfo.push({imgDom:elem, imgX:posx-593, imgY:posy-434}); //착용정보의 이미지 태그가 담김
+ // imgInfo.push({imgDom:elem, imgX:posx-593, imgY:posy-304}); //착용정보의 이미지 태그가 담김
   console.log(imgDom);
   
 }
@@ -230,28 +227,28 @@ function displayWeather(type) {
 // 옷장 이미지와 상의, 하의, 신발, 기타, 랜덤의 분류 버튼을 나타내줄 display 함수 구현
 function displayClothes(type) {
 	if(type == 1) {
-		document.getElementById("defaultCloset").style.opacity='0.3';
+		document.getElementById("defaultCloset").style.opacity='0.4';
 		document.getElementById("picturesbox1").style.display='block';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='none';
 		document.getElementById("picturesbox4").style.display='none';
 		document.getElementById("picturesbox5").style.display='none';
 	}else if(type == 2) {
-		document.getElementById("defaultCloset").style.opacity='0.3';
+		document.getElementById("defaultCloset").style.opacity='0.4';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='block';
 		document.getElementById("picturesbox3").style.display='none';
 		document.getElementById("picturesbox4").style.display='none';
 		document.getElementById("picturesbox5").style.display='none';
 	}else if(type == 3){
-		document.getElementById("defaultCloset").style.opacity='0.3';
+		document.getElementById("defaultCloset").style.opacity='0.4';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='block';
 		document.getElementById("picturesbox4").style.display='none';	
 		document.getElementById("picturesbox5").style.display='none';
 	}else if(type == 4){
-		document.getElementById("defaultCloset").style.opacity='0.3';
+		document.getElementById("defaultCloset").style.opacity='0.4';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='none';
@@ -259,7 +256,7 @@ function displayClothes(type) {
 		document.getElementById("picturesbox5").style.display='none';
 	}
 	else if(type == 5){
-		document.getElementById("defaultCloset").style.opacity='0.3';
+		document.getElementById("defaultCloset").style.opacity='0.4';
 		document.getElementById("picturesbox1").style.display='none';
 		document.getElementById("picturesbox2").style.display='none';
 		document.getElementById("picturesbox3").style.display='none';
