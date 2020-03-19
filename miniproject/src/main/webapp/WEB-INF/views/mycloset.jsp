@@ -56,35 +56,35 @@
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 500px;
+		height : 515px;
 		overflow:scroll;
 	}
 	#picturesbox2 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 500px;
+		height : 515px;
 		overflow:scroll;
 	}
 	#picturesbox3 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 500px;
+		height : 515px;
 		overflow:scroll;
 	}
 	#picturesbox4 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 500px;
+		height : 515px;
 		overflow:scroll;
 	}
 	#picturesbox5 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 500px;
+		height : 515px;
 		overflow:scroll;
 	}
 	#weather{
@@ -331,7 +331,7 @@ function displayClothes(type) {
 	<br>
   <!-- 캔버스 영역 설정  -->
   <section id="dropbox">
-    <canvas id="canvas" width="650" height="734"></canvas>
+    <canvas id="canvas" width="650" height="820"></canvas>
   </section>
    
    <!-- 상의 아이템 -->
