@@ -93,12 +93,8 @@
 		z-index:0;
 		left : 580px;
 		opacity : 0.9;
-		border-radius : 20px;
-		
 	}
-	#round{
-		border-radius : 20px;
-	}
+
 </style>
 <script>
 var canvas, drop1, drop2;
@@ -705,13 +701,11 @@ function displayClothes(type) {
   	%>
 
 <section id = "weather">
-<div id = "round">
-<img id="backimg" src="http://70.12.115.167:8000/miniproject/resources/images/back<%= rand %>.png" style="display:blcok" width="660px" height="510px">
-<img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none" width="660px" height="810px">
-<img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none" width="660px" height="810px">
-<img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none" width="660px" height="810px">
-<img id="winter" src="http://70.12.115.167:8000/miniproject/resources/images/winter.png" style="display:none" width="660px" height="810px">
-</div>
+<img id="backimg" src="http://70.12.115.167:8000/miniproject/resources/images/back<%= rand %>.png" style="display:blcok; border-radius:60px;" width="640px" height="510px">
+<img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none; border-radius:60px;" width="640px" height="810px">
+<img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none; border-radius:60px;" width="640px" height="810px">
+<img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none; border-radius:60px;" width="640px" height="810px">
+<img id="winter" src="http://70.12.115.167:8000/miniproject/resources/images/winter.png" style="display:none; border-radius:60px;" width="640px" height="810px">
 </section>
 </body>
 </html>
