@@ -3,15 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Style Manager</title>
+  <title>What In My Closet</title>
   	<link href="https://fonts.googleapis.com/css?family=Poor Story:400" rel="stylesheet">
-    <link rel="stylesheet" href="hover.css">  
+    <link rel="stylesheet" href="http://70.12.115.167:8000/miniproject/resources/hover.css">  
 <style>
 	h1{
-		font-family : Poor Story;
-		font-size : 65px;
 		text-align : center;
-  		text-shadow : 10px 10px 15px black;
   		color : #fff;
   	}
   	label{
@@ -41,47 +38,48 @@
 	#defaultCloset {
 		position : absolute;
 		left : 5px;
-		top : 450px;
+		top : 400px;
 		width : 550px;
 		height : 800px;
 		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/closet.png);
   		background-repeat : no-repeat;
   		z-index: -1000;
+  		border-radius : 20px;
   		
 	}
 	#picturesbox1 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 830px;
 		overflow:scroll;
 	}
 	#picturesbox2 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 830px;
 		overflow:scroll;
 	}
 	#picturesbox3 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 830px;
 		overflow:scroll;
 	}
 	#picturesbox4 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 830px;
 		overflow:scroll;
 	}
 	#picturesbox5 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 820px;
+		height : 830px;
 		overflow:scroll;
 	}
 	#weather{
@@ -290,34 +288,48 @@ function displayClothes(type) {
 </script>
 <body>
 <br>
-<h1><img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "120px">Style Manager<img src="http://70.12.115.167:8000/miniproject/resources/images/logo.png" height = "120px"></h1>
+<h1>What In My Closet</h1>
 <div>
 
   <!-- 코디 저장 및 불러오기 fuction -->
 <p>
-    <button onclick="save();">코디 저장하기</button>
-    <button onclick="loading();">코디 읽어오기</button>
-    <button onclick="del();">코디 지우기</button>
-    <button onclick="cancel();">직전 코디 취소하기</button>
+<div class="btn_wrap" >
+	<span id="boxing" >Make MY LOOKBOOK</span>
+		<div class="container">
+    		<button onclick="save();">Save your Look</button>
+    		<button onclick="loading();">Load your Look</button>
+    		<button onclick="del();">Initialize your Look</button>
+    		<button onclick="cancel();">Get back to Look you just made</button>
+    	</div>
+</div>
 </p>
 
   <!-- 옷장 탭구분 등록 fuction -->
 <p>
-    <button onclick="displayClothes(1);">상의</button>
-    <button onclick="displayClothes(2);">하의</button>
-    <button onclick="displayClothes(3);">신발</button>
-    <button onclick="displayClothes(4);">기타</button>
-    <button onclick="displayClothes(5);">SM's 추천 코디</button>
-    <button onclick="displayClothes(6);">옷장 문 닫기</button>
-  </p>
+	<span id="boxing1" >MY CLOSET TOUR</span>
+		<div class="container1">
+    		<button onclick="displayClothes(1);">Tops</button>
+   		 	<button onclick="displayClothes(2);">Bottoms</button>
+    		<button onclick="displayClothes(3);">Shoes</button>
+    		<button onclick="displayClothes(4);">Bags & Hats</button>
+   			<button onclick="displayClothes(5);">SM STYLING TIPS</button>
+    		<button onclick="displayClothes(6);">CLOSE MY CLOSET</button>
+       </div>
+</div>
+</p>
   
   <!-- 계절 BG 등록 fuction -->
-  <p> 
-    <button onclick="displayWeather(1);">봄</button>
-    <button onclick="displayWeather(2);">여름</button>
-    <button onclick="displayWeather(3);">가을</button>
-    <button onclick="displayWeather(4);">겨울</button>
-    <button onclick="displayWeather(5);">배경 없음</button>
+<p> 
+  <div class="btn_wrap2" >
+	<span id="boxing2" >TIME, PLACE, OCCASION</span>
+		<div class="container2">
+    		<button onclick="displayWeather(1);">Spring</button>
+    		<button onclick="displayWeather(2);">Summer</button>
+    		<button onclick="displayWeather(3);">Fall</button>
+    		<button onclick="displayWeather(4);">Winter</button>
+    		<button onclick="displayWeather(5);">None</button>
+    	</div>
+  </div>
    </p>
    </div>
 	<br>
@@ -331,7 +343,7 @@ function displayClothes(type) {
  
   	<!-- 여성 상의 -->
   	<br>
-  	<label>◎ 여성 ◎</label>
+  	<label>◎ WOMEN ◎</label>
   	<br>
     <img id="wt001" src="http://70.12.115.167:8000/miniproject/resources/images/wt001.png" height="125px">
     <img id="wt002" src="http://70.12.115.167:8000/miniproject/resources/images/wt002.png" height="125px">
@@ -367,7 +379,7 @@ function displayClothes(type) {
     
     <!-- 남성 상의 -->
     <br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
     <img id="mt001" src="http://70.12.115.167:8000/miniproject/resources/images/mt001.png" height="125px">
     <img id="mt002" src="http://70.12.115.167:8000/miniproject/resources/images/mt002.png" height="125px">
@@ -413,7 +425,7 @@ function displayClothes(type) {
   
   <!-- 여성 하의 -->
    	<br> 
-    <label>◎ 여성 ◎</label>
+    <label>◎ WOMEN ◎</label>
   	<br>
     <img id="wp001" src="http://70.12.115.167:8000/miniproject/resources/images/wp001.png" height="125px">
     <img id="wp002" src="http://70.12.115.167:8000/miniproject/resources/images/wp002.png" height="125px">
@@ -439,7 +451,7 @@ function displayClothes(type) {
     
   <!-- 남성 하의 -->
   	<br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
     <img id="mp001" src="http://70.12.115.167:8000/miniproject/resources/images/mp001.png" height="125px">
     <img id="mp002" src="http://70.12.115.167:8000/miniproject/resources/images/mp002.png" height="125px">
@@ -456,7 +468,7 @@ function displayClothes(type) {
   <section id="picturesbox3" style="display:none">
     <!-- 여성 신발 -->
   	<br>
-    <label>◎ 여성 ◎</label>
+    <label>◎ WOMEN ◎</label>
   	<br>
     <img id="ws001" src="http://70.12.115.167:8000/miniproject/resources/images/ws001.png" height="125px">
     <img id="ws002" src="http://70.12.115.167:8000/miniproject/resources/images/ws002.png" height="125px">
@@ -467,7 +479,7 @@ function displayClothes(type) {
     
     <!-- 남성 신발 -->
     <br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
   	<img id="ms001" src="http://70.12.115.167:8000/miniproject/resources/images/ms001.png" width="94.69px" height="125px">
     <img id="ms002" src="http://70.12.115.167:8000/miniproject/resources/images/ms002.png" width="94.69px" height="125px">
@@ -481,7 +493,7 @@ function displayClothes(type) {
    <section id="picturesbox4" style="display:none">
    <!-- 여성 기타 -->
     <br>
-    <label>◎ 여성 ◎</label>
+    <label>◎ WOMEN ◎</label>
   	<br>
     <img id="we002" src="http://70.12.115.167:8000/miniproject/resources/images/we002.png" height="125px">   
     <img id="we003" src="http://70.12.115.167:8000/miniproject/resources/images/we003.png" height="125px">
@@ -493,7 +505,7 @@ function displayClothes(type) {
     
     <!-- 남성 기타 -->
     <br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
     <img id="me001" src="http://70.12.115.167:8000/miniproject/resources/images/me001.png" height="125px">
     <img id="me004" src="http://70.12.115.167:8000/miniproject/resources/images/me004.png" height="125px">
@@ -519,7 +531,7 @@ function displayClothes(type) {
   	%>
   	<!-- 여성 랜덤 -->
   	<br>
-  	<label>◎ 여성 ◎</label>
+  	<label>◎ WOMEN ◎</label>
   	<br>
 	<img id="wt<%= wshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/wt<%= wshirt %>.png" height="125px">
 	<img id="wp<%= wpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/wp<%= wpants %>.png" height="125px">
@@ -535,7 +547,7 @@ function displayClothes(type) {
 	
    	<!-- 남성 랜덤 -->
    	<br>
-  	<label>◎ 남성 ◎</label>
+  	<label>◎ MEN ◎</label>
   	<br>
 	<img id="mt<%= mshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/mt<%= mshirt %>.png" height="125px">
 	<img id="mp<%= mpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/mp<%= mpants %>.png" height="125px">

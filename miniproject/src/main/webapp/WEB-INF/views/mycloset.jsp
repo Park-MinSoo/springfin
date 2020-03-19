@@ -4,12 +4,12 @@
 <html>
 <head>
   <title>What In My Closet</title>
-  	
+  	<link href="https://fonts.googleapis.com/css?family=Poor Story:400" rel="stylesheet">
     <link rel="stylesheet" href="http://70.12.115.167:8000/miniproject/resources/hover.css">  
 <style>
-	body{
+ 	body{
 		background-color: black;
-	}
+	} 
 	
 	h1{
 		
@@ -38,52 +38,53 @@
 		z-index:1000;
 		left : 580px;
 		width : 650px;
-		height : 500px;
+		height : 800px;
 	}
 	#defaultCloset {
 		position : absolute;
-		left : 50px;
+		left : 150px;
 		top : 300px;
-		width : 550px;
+		width : 220px;
 		height : 500px;
 		background-image : url(http://70.12.115.167:8000/miniproject/resources/images/closet21.png);
   		background-repeat : no-repeat;
   		z-index: -1000;
+  		border-radius : 20px;
   		
 	}
 	#picturesbox1 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 520px;
+		height : 500px;
 		overflow:scroll;
 	}
 	#picturesbox2 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 520px;
+		height : 500px;
 		overflow:scroll;
 	}
 	#picturesbox3 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 520px;
+		height : 500px;
 		overflow:scroll;
 	}
 	#picturesbox4 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 520px;
+		height : 500px;
 		overflow:scroll;
 	}
 	#picturesbox5 {
 		position : absolute;
 		left : 5px;
 		width : 550px;
-		height : 520px;
+		height : 500px;
 		overflow:scroll;
 	}
 	#weather{
@@ -92,251 +93,12 @@
 		z-index:0;
 		left : 580px;
 		opacity : 0.9;
+		border-radius : 20px;
+		
 	}
-	
-	
-	.btn_wrap {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    overflow: hidden;
-    cursor: pointer;
-    width: 800px;
-    height: 35px;
-    background-color: black;
-    border-radius: 40px;
-    padding: 0 18px;
-    will-change: transform;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn_wrap:hover {
-    /* transition-delay: .4s; */
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1)
-}
-
-#boxing {
-    position: absolute;
-    z-index: 99;
-    width: 810px;
-    height: 40px;
-    border-radius: 40px;
-    font-size: 10px;
-    text-align: center;
-    line-height: 40px;
-    letter-spacing: 2px;
-    color: #EEEEED;
-    background-color: #1F1E1E;
-    padding: 0 18px;
-    -webkit-transition: all 1.2s ease;
-    transition: all 1.2s ease;
-    
-}
-
-.container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 820px;
-    height: 48px;
-    border-radius: 40px;
-    text-align: center;
-}
-
-
-.btn_wrap:hover span {
-    -webkit-transition-delay: .25s;
-            transition-delay: .25s;
-    -webkit-transform: translateX(-800px);
-            transform: translateX(-800px)
-}
-
-.btn_wrap:hover i {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-}
-	
-	
-	
-	.btn_wrap1 {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    overflow: hidden;
-    cursor: pointer;
-    width: 800px;
-    height: 35px;
-    background-color: black;
-    border-radius: 40px;
-    padding: 0 18px;
-    will-change: transform;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn_wrap1:hover {
-    /* transition-delay: .4s; */
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1)
-}
-
-#boxing1 {
-    position: absolute;
-    z-index: 99;
-    width: 810px;
-    height: 40px;
-    border-radius: 40px;
-    font-size: 10px;
-    text-align: center;
-    line-height: 40px;
-    letter-spacing: 2px;
-    color: #EEEEED;
-    background-color: #1F1E1E;
-    padding: 0 18px;
-    -webkit-transition: all 1.2s ease;
-    transition: all 1.2s ease;
-    
-}
-
-.container1 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 820px;
-    height: 48px;
-    border-radius: 40px;
-    text-align: center;
-}
-
-
-.btn_wrap1:hover span {
-    -webkit-transition-delay: .25s;
-            transition-delay: .25s;
-    -webkit-transform: translateX(-800px);
-            transform: translateX(-800px)
-}
-
-.btn_wrap1:hover i {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-}
-
-
-
-.btn_wrap2 {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    overflow: hidden;
-    cursor: pointer;
-    width: 800px;
-    height: 35px;
-    background-color: black;
-    border-radius: 40px;
-    padding: 0 18px;
-    will-change: transform;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn_wrap2:hover {
-    /* transition-delay: .4s; */
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1)
-}
-
-#boxing2 {
-    position: absolute;
-    z-index: 99;
-    width: 810px;
-    height: 40px;
-    border-radius: 40px;
-    font-size: 10px;
-    text-align: center;
-    line-height: 40px;
-    letter-spacing: 2px;
-    color: #EEEEED;
-    background-color: #1F1E1E;
-    padding: 0 18px;
-    -webkit-transition: all 1.2s ease;
-    transition: all 1.2s ease;
-    
-}
-
-.container2 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 820px;
-    height: 48px;
-    border-radius: 40px;
-    text-align: center;
-}
-
-
-.btn_wrap2:hover span {
-    -webkit-transition-delay: .25s;
-            transition-delay: .25s;
-    -webkit-transform: translateX(-800px);
-            transform: translateX(-800px)
-}
-
-.btn_wrap2:hover i {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-}
-
-
-
-
-	
+	#round{
+		border-radius : 20px;
+	}
 </style>
 <script>
 var canvas, drop1, drop2;
@@ -659,7 +421,7 @@ function displayClothes(type) {
   
   <!-- 여성 하의 -->
    	<br> 
-    <label>◎ 여성 ◎</label>
+    <label>◎ WOMEN ◎</label>
   	<br>
     <img id="wp001" src="http://70.12.115.167:8000/miniproject/resources/images/wp001.png" height="125px">
     <img id="wp002" src="http://70.12.115.167:8000/miniproject/resources/images/wp002.png" height="125px">
@@ -685,7 +447,7 @@ function displayClothes(type) {
     
   <!-- 남성 하의 -->
   	<br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
     <img id="mp001" src="http://70.12.115.167:8000/miniproject/resources/images/mp001.png" height="125px">
     <img id="mp002" src="http://70.12.115.167:8000/miniproject/resources/images/mp002.png" height="125px">
@@ -702,7 +464,7 @@ function displayClothes(type) {
   <section id="picturesbox3" style="display:none">
     <!-- 여성 신발 -->
   	<br>
-    <label>◎ 여성 ◎</label>
+    <label>◎ WOMEN ◎</label>
   	<br>
     <img id="ws001" src="http://70.12.115.167:8000/miniproject/resources/images/ws001.png" height="125px">
     <img id="ws002" src="http://70.12.115.167:8000/miniproject/resources/images/ws002.png" height="125px">
@@ -713,7 +475,7 @@ function displayClothes(type) {
     
     <!-- 남성 신발 -->
     <br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
   	<img id="ms001" src="http://70.12.115.167:8000/miniproject/resources/images/ms001.png" width="94.69px" height="125px">
     <img id="ms002" src="http://70.12.115.167:8000/miniproject/resources/images/ms002.png" width="94.69px" height="125px">
@@ -727,7 +489,7 @@ function displayClothes(type) {
    <section id="picturesbox4" style="display:none">
    <!-- 여성 기타 -->
     <br>
-    <label>◎ 여성 ◎</label>
+    <label>◎ WOMEN ◎</label>
   	<br>
     <img id="we002" src="http://70.12.115.167:8000/miniproject/resources/images/we002.png" height="125px">   
     <img id="we003" src="http://70.12.115.167:8000/miniproject/resources/images/we003.png" height="125px">
@@ -739,7 +501,7 @@ function displayClothes(type) {
     
     <!-- 남성 기타 -->
     <br>
-    <label>◎ 남성 ◎</label>
+    <label>◎ MEN ◎</label>
   	<br>
     <img id="me001" src="http://70.12.115.167:8000/miniproject/resources/images/me001.png" height="125px">
     <img id="me004" src="http://70.12.115.167:8000/miniproject/resources/images/me004.png" height="125px">
@@ -765,7 +527,7 @@ function displayClothes(type) {
   	%>
   	<!-- 여성 랜덤 -->
   	<br>
-  	<label>◎ 여성 ◎</label>
+  	<label>◎ WOMEN ◎</label>
   	<br>
 	<img id="wt<%= wshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/wt<%= wshirt %>.png" height="125px">
 	<img id="wp<%= wpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/wp<%= wpants %>.png" height="125px">
@@ -781,7 +543,7 @@ function displayClothes(type) {
 	
    	<!-- 남성 랜덤 -->
    	<br>
-  	<label>◎ 남성 ◎</label>
+  	<label>◎ MEN ◎</label>
   	<br>
 	<img id="mt<%= mshirt %>" src="http://70.12.115.167:8000/miniproject/resources/images/mt<%= mshirt %>.png" height="125px">
 	<img id="mp<%= mpants %>" src="http://70.12.115.167:8000/miniproject/resources/images/mp<%= mpants %>.png" height="125px">
@@ -943,12 +705,13 @@ function displayClothes(type) {
   	%>
 
 <section id = "weather">
-<br>
+<div id = "round">
 <img id="backimg" src="http://70.12.115.167:8000/miniproject/resources/images/back<%= rand %>.png" style="display:blcok" width="660px" height="510px">
-<img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none" width="660px" height="510px">
-<img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none" width="660px" height="510px">
-<img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none" width="660px" height="510px">
-<img id="winter" src="http://70.12.115.167:8000/miniproject/resources/images/winter.png" style="display:none" width="660px" height="510px">
+<img id="spring" src="http://70.12.115.167:8000/miniproject/resources/images/spring.png" style="display:none" width="660px" height="810px">
+<img id="summer" src="http://70.12.115.167:8000/miniproject/resources/images/summer.png" style="display:none" width="660px" height="810px">
+<img id="fall" src="http://70.12.115.167:8000/miniproject/resources/images/fall.png" style="display:none" width="660px" height="810px">
+<img id="winter" src="http://70.12.115.167:8000/miniproject/resources/images/winter.png" style="display:none" width="660px" height="810px">
+</div>
 </section>
 </body>
 </html>
